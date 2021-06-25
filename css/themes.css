@@ -1,0 +1,77 @@
+/* Purple Theme */
+.purple .content {
+    background: -moz-linear-gradient(top,rgba(191,95,255,1),rgba(127,0,255,1));
+    background: -webkit-gradient(linear,0 0,0 100%,from(rgba(191,95,255,1)),to(rgba(127,0,255,1)));
+    background: -webkit-linear-gradient(top,rgba(191,95,255,1),rgba(127,0,255,1));
+    background: -o-linear-gradient(top,rgba(191,95,255,1),rgba(127,0,255,1));
+    background: rgb(191,95,255);
+    background: linear-gradient(0deg, rgba(191,95,255,1) 0%, rgba(127,0,255,1) 100%);
+}
+
+.purple .navbar {
+    color: white;
+    transition: color 0.3s;
+}
+
+.purple .navbar:hover {
+    color: rgba(255, 255, 255, 0.76);
+    transition: color 0.3s;
+}
+
+.purple .main .title {
+    color: white;
+    text-shadow: 4px 4px rgba(0,0,0,0.2);
+}
+
+.purple .main {
+    color: #ba8dd8;
+}
+
+.purple .footer {
+    color: white;
+    background-color: rgba(0,0,0,0.05);
+}
+
+.purple .footer .text {
+    background-color: transparent;
+}
+/* End of Purple Theme */
+
+/* Gray Theme */
+.gray .content {
+    background: -moz-linear-gradient(top,rgba(44,47,51,1),rgba(0,0,0,1));
+    background: -webkit-gradient(linear,0 0,0 100%,from(rgba(44,47,51,1)),to(rgba(0,0,0,1)));
+    background: -webkit-linear-gradient(top,rgba(44,47,51,1),rgba(0,0,0,1));
+    background: -o-linear-gradient(top,rgba(44,47,51,1),rgba(0,0,0,1));
+    background: rgb(44,47,51);
+    background: linear-gradient(0deg, rgba(44,47,51,1) 0%, rgba(0,0,0,1) 100%);
+}
+
+.gray .navbar {
+    color: #99AAB5;
+    transition: color 0.3s;
+}
+
+.gray .navbar:hover {
+    color: #99aab5b9;
+    transition: color 0.3s;
+}
+
+.gray .main .title {
+    color: #99AAB5;
+    text-shadow: 4px 4px rgba(50,50,50,0.2);
+}
+
+.gray .main {
+    color: #99aab56e;
+}
+
+.gray .footer {
+    color: white;
+    background-color: rgba(0,0,0,0.05);
+}
+
+.gray .footer .text {
+    background-color: transparent;
+}
+/* End of Gray Theme */
