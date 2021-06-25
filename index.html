@@ -1,27 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>emopedia</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Telex&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
-<script src="./app.js"></script>
-</head>
-<body>
-<div class="container" id="app">
-<div class="center">
-<div class="title">emopedia</div>
-<div class="desc">I work on <div id="work"></div><div id="cursor"></div></div>
-<div class="tags">
-<div class="tag" v-on:click="redirect('github.com/SantioMC')">
-<img src="/icons/github.svg" width=50 height=50>
-</div>
-<div class="tag" v-on:click="redirect('discord.id/?prefill=239752804468654090')">
-<img src="/icons/discord.svg" width=50 height=50>
-</div>
-</div>
-</div>
-</div>
-</body>
+<html style="font-family: Roboto, Arial, sans-serif;" lang="en-GB" id="wrapper">
+    <head>
+        <title>Obey.pro</title>
+		<link rel="icon" href="./assets/favicon.ico">
+		<meta name="description" content="A little website about me. No more, no less.">
+		<meta name="theme-color" content="#6d2aff">
+		<meta name="apple-mobile-web-app-capable" content="no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="og:image" content="https://crafatar.com/avatars/7f3f0a15-b996-4030-8ebc-08f565a6d188?overlay">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/aa210b9380.js"></script>
+        <script src="./js/main.js"></script>
+        <link rel="stylesheet" href="./css/themes.css">
+    </head>
+    <body id="content" class="html" onload="showTime(); footer(); checktheme(); setAge();">
+        <div class="content">
+            <div class="navbar">
+                <a class="navbar icon" href="">
+                    <i class="fas fa-cookie-bite"></i>
+                </a>
+                <div class="navbar spacer"></div>
+                <a class="navbar item" href="./projects">Projects</a>
+                <div class="navbar spacer"></div>
+                <a class="navbar item" href="./contact">Contact</a>
+                <div class="navbar spacer"></div>
+                <a class="navbar item" href="https://i.obey.pro">Images</a>
+                <img class="navbar picture" src="https://crafatar.com/avatars/7f3f0a15-b996-4030-8ebc-08f565a6d188?overlay">
+                <a id="themechanger" class="navbar theme" onclick="changeTheme()"><i class='fas fa-moon fa-flip-horizontal'></i></i></a>
+            </div>
+            <div class="main">
+                <h1 class="main title">emopedia</h1>
+                <h2 class="main text"><div id="dynamicAge" class="main age"></div>-year-old male from New Zealand.</h2>
+                <h2 class="main text">I am currently learning CSS, HTML, and JavaScript.</h2>
+            </div>
+            <div class="footer" style="display: table; height: 30px; #position: relative; overflow: hidden;">
+                <div style="#position: absolute; #top: 50%;display: table-cell; vertical-align: middle;">
+                    <div style=" #position: relative; #top: -50%">
+                        <h1 id="footer" class="footer text"></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
-
