@@ -101,7 +101,7 @@ function getCookie(cname) {
 }
 
 function setAge() {
-    birthDate = new Date("06 January 2003");
+    birthDate = new Date("04 August 2007");
     otherDate = new Date();
     element = document.getElementById("dynamicAge");
 
