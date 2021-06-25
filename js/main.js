@@ -27,7 +27,7 @@ showTime();
 function footer() {
     var year = new Date().getFullYear();
     var footer = document.getElementById("footer");
-    footer.innerHTML = `&copy <a href="" class="footer text">Obey</a> ${year}`
+    footer.innerHTML = `&copy <a href="" class="footer text">emopedia</a> ${year}`
 }
 
 function changeTheme() {
