@@ -2405,6 +2405,22 @@
                     )();
                 }
             }
+	     function setAge() {
+    		birthDate = new Date("06 January 2003");
+    		otherDate = new Date();
+    		element = document.getElementById("dynamicAge");
+
+    		if (!element) return;
+
+    		var years = (otherDate.getFullYear() - birthDate.getFullYear());
+
+    		if (otherDate.getMonth() < birthDate.getMonth() || 
+        		otherDate.getMonth() == birthDate.getMonth() && otherDate.getDate() < birthDate.getDate()) {
+        		years--;
+    		}
+
+    		element.innerHTML = years;
+		}
             )();
         </script>
     </body>
