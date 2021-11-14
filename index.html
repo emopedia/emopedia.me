@@ -1,17 +1,22 @@
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- sets width to device width, and initial zoom level -->
-	<title>emopedia</title> <!-- title of page on tab -->
-	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/image01.jpg">
-	<meta content="emopedia" property="og:title">
-	<meta content="A website about me. Nothing more, nothing less." property="og:description">
-	<meta content="https://emopedia.tk" property="og:url">
-	<meta content="https://cdn.discordapp.com/avatars/576333646865104897/94aabf59897b67a7a0db02390a37269f.png?size=128" property="og:thumbnail">
-	<meta content="#32CD32" data-react-helmet="true" name="theme-color"> />
+        <title>emopedia</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+        <meta name="description" content="A website about me... and only me."/>
+        <meta property="og:site_name" content="emopedia"/>
+        <meta property="og:title" content="emopedia"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:description" content="A website about me... and only me."/>
+        <meta property="og:image" content="https://emopedia.tk/assets/images/card.jpg?v=9899f83f"/>
+        <meta property="og:image:type" content="image/jpeg"/>
+        <meta property="og:image:width" content="1280"/>
+        <meta property="og:image:height" content="800"/>
+        <meta property="og:url" content="https://emopedia.tk"/>
         <meta property="twitter:card" content="summary_large_image"/>
-        <link href="https://fonts.googleapis.com/css?family=Public+Sans:300,300italic,700,700italic" rel="stylesheet" type="text/css"/>
+        <link rel="canonical" href="https://emopedia.tk"/>
+        <link href="https://fonts.googleapis.com/css?family=Manrope:500,500italic,600,600italic,700,700italic,900,900italic%7CInter:200,200italic,400,400italic,700,700italic" rel="stylesheet" type="text/css"/>
         <style>
             html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
                 margin: 0;
@@ -30,7 +35,7 @@
                 line-height: 1;
             }
 
-            ol,ul { 
+            ol,ul {
                 list-style: none;
             }
 
@@ -75,10 +80,61 @@
 
             body {
                 min-width: 320px;
-                min-height: 100vh;
+                min-height: var(--viewport-height);
                 line-height: 1.0;
                 word-wrap: break-word;
                 overflow-x: hidden;
+            }
+
+            body:before {
+                content: '';
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: var(--background-height);
+                z-index: 0;
+                pointer-events: none;
+                transform: scale(1);
+                background-attachment: scroll;
+                background-image: linear-gradient(45deg, #131430 0%, rgba(35,19,48,0.941) 100%), url('assets/images/bg.svg?v=9899f83f');
+                background-position: 0% 0%, bottom;
+                background-repeat: repeat, no-repeat;
+                background-size: cover, cover;
+                background-color: #000000;
+            }
+
+            body:after {
+                display: block;
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #1B1330;
+                z-index: 1;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 1s ease-in-out 0s, visibility 1s 0s;
+                transform: scale(1);
+            }
+
+            body.is-loading:after {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            :root {
+                --site-language-direction: ltr;
+                --site-language-alignment: left;
+                --viewport-height: 100vh;
+                --background-height: 100vh;
+            }
+
+            html {
+                font-size: 18pt;
             }
 
             u {
@@ -110,100 +166,27 @@
                 background-color: rgba(144,144,144,0.25);
             }
 
-            a {
-                -moz-transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
-                -webkit-transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
-                -ms-transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
-                transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
-                color: inherit;
-                text-decoration: underline;
-            }
-
             s {
                 text-decoration: line-through;
             }
 
-            body:before {
-                content: '';
-                display: block;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                height: 100vh;
-                z-index: 0;
-                -moz-pointer-events: none;
-                -webkit-pointer-events: none;
-                -ms-pointer-events: none;
-                pointer-events: none;
-                -moz-transform: scale(1);
-                -webkit-transform: scale(1);
-                -ms-transform: scale(1);
-                transform: scale(1);
-                background-attachment: scroll;
-                background-image: linear-gradient(to top, rgba(255,255,255,0.922), rgba(255,255,255,0.922)), url('assets/images/bg.svg?v=d7bf382d');
-                background-position: 0% 0%, bottom right;
-                background-repeat: repeat, no-repeat;
-                background-size: auto, 100% 100%;
-                background-color: #FFFFFF;
-            }
-
-            body:after {
-                display: block;
-                content: '';
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: #FFFFFF;
-                z-index: 1;
-                opacity: 0;
-                visibility: hidden;
-                -moz-transition: opacity 0.25s ease-in-out 0s, visibility 0.25s 0s;
-                -webkit-transition: opacity 0.25s ease-in-out 0s, visibility 0.25s 0s;
-                -ms-transition: opacity 0.25s ease-in-out 0s, visibility 0.25s 0s;
-                transition: opacity 0.25s ease-in-out 0s, visibility 0.25s 0s;
-                -moz-transform: scale(1);
-                -webkit-transform: scale(1);
-                -ms-transform: scale(1);
-                transform: scale(1);
-            }
-
-            body.is-loading:after {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            :root {
-                --site-language-direction: ltr;
-                --site-language-alignment: left;
-            }
-
-            html {
-                font-size: 16pt;
+            a {
+                color: inherit;
+                text-decoration: underline;
+                transition: color 0.25s ease;
             }
 
             #wrapper {
                 -webkit-overflow-scrolling: touch;
                 display: flex;
-                -moz-flex-direction: column;
-                -webkit-flex-direction: column;
-                -ms-flex-direction: column;
                 flex-direction: column;
-                -moz-align-items: center;
-                -webkit-align-items: center;
-                -ms-align-items: center;
                 align-items: center;
-                -moz-justify-content: center;
-                -webkit-justify-content: center;
-                -ms-justify-content: center;
                 justify-content: center;
-                min-height: 100vh;
+                min-height: var(--viewport-height);
                 position: relative;
                 z-index: 2;
                 overflow: hidden;
-                padding: 1rem 1rem 1rem 1rem;
+                padding: 2rem 2rem 2rem 2rem;
             }
 
             #main {
@@ -211,43 +194,23 @@
                 position: relative;
                 max-width: 100%;
                 z-index: 1;
-                -moz-align-items: center;
-                -webkit-align-items: center;
-                -ms-align-items: center;
                 align-items: center;
-                -moz-justify-content: center;
-                -webkit-justify-content: center;
-                -ms-justify-content: center;
                 justify-content: center;
-                -moz-flex-grow: 0;
-                -webkit-flex-grow: 0;
-                -ms-flex-grow: 0;
                 flex-grow: 0;
-                -moz-flex-shrink: 0;
-                -webkit-flex-shrink: 0;
-                -ms-flex-shrink: 0;
                 flex-shrink: 0;
                 text-align: center;
-                background-color: #FFFFFF;
-                box-shadow: 0rem 1.75rem 4rem 0rem rgba(0,0,0,0.09);
-                border-radius: 0.75rem 0.75rem 0.75rem 0.75rem;
-                border-top: solid 1px #E8E8E8;
-                border-right: solid 1px #E8E8E8;
-                border-bottom: solid 1px #E8E8E8;
-                border-left: solid 1px #E8E8E8;
-                -moz-transition: opacity 0.625s ease 0.125s,-moz-transform 0.625s ease 0.125s;
-                -webkit-transition: opacity 0.625s ease 0.125s,-webkit-transform 0.625s ease 0.125s;
-                -ms-transition: opacity 0.625s ease 0.125s,-ms-transform 0.625s ease 0.125s;
-                transition: opacity 0.625s ease 0.125s,transform 0.625s ease 0.125s;
+                background-color: transparent;
+                border-radius: 2rem 2rem 2rem 2rem;
+                transition: opacity 1s ease 0s,transform 1s ease 0s;
             }
 
             #main > .inner {
                 position: relative;
                 z-index: 1;
-                border-radius: calc(0.75rem - 1px) calc(0.75rem - 1px) calc(0.75rem - 1px) calc(0.75rem - 1px);
-                padding: 0rem 0rem;
+                border-radius: inherit;
+                padding: 2rem 2rem;
                 max-width: 100%;
-                width: 24rem;
+                width: 30rem;
             }
 
             #main > .inner > * {
@@ -264,19 +227,19 @@
             }
 
             #main > .inner > .full {
-                margin-left: calc(0rem);
-                width: calc(100% + 0rem + 0.4725px);
-                max-width: calc(100% + 0rem + 0.4725px);
+                margin-left: calc(-2rem);
+                width: calc(100% + 4rem + 0.4725px);
+                max-width: calc(100% + 4rem + 0.4725px);
             }
 
             #main > .inner > .full:first-child {
-                margin-top: 0rem !important;
+                margin-top: -2rem !important;
                 border-top-left-radius: inherit;
                 border-top-right-radius: inherit;
             }
 
             #main > .inner > .full:last-child {
-                margin-bottom: 0rem !important;
+                margin-bottom: -2rem !important;
                 border-bottom-left-radius: inherit;
                 border-bottom-right-radius: inherit;
             }
@@ -293,25 +256,284 @@
 
             body.is-loading #main {
                 opacity: 0;
-                -moz-transform: scale(0.975);
-                -webkit-transform: scale(0.975);
-                -ms-transform: scale(0.975);
-                transform: scale(0.975);
+                transform: translateY(0.6375rem);
             }
 
             body.is-instant #main, body.is-instant #main > .inner > *,body.is-instant #main > .inner > section > * {
-                -moz-transition: none !important;
-                -webkit-transition: none !important;
-                -ms-transition: none !important;
                 transition: none !important;
             }
 
             body.is-instant:after {
                 display: none !important;
-                -moz-transition: none !important;
-                -webkit-transition: none !important;
-                -ms-transition: none !important;
                 transition: none !important;
+            }
+
+            .image {
+                position: relative;
+                max-width: 100%;
+                display: block;
+            }
+
+            .image .frame {
+                width: 100%;
+                max-width: 100%;
+                display: inline-block;
+                vertical-align: top;
+                overflow: hidden;
+                -webkit-backface-visibility: hidden;
+                -webkit-transform: translate3d(0, 0, 0);
+            }
+
+            .image .frame img {
+                width: inherit;
+                max-width: 100%;
+                vertical-align: top;
+                border-radius: 0 !important;
+            }
+
+            .image.full .frame {
+                display: block;
+            }
+
+            .image.full:first-child .frame {
+                border-top-left-radius: inherit;
+                border-top-right-radius: inherit;
+            }
+
+            .image.full:last-child .frame {
+                border-bottom-left-radius: inherit;
+                border-bottom-right-radius: inherit;
+            }
+
+            .image.style1:not(:first-child) {
+                margin-top: 1.875rem !important;
+            }
+
+            .image.style1:not(:last-child) {
+                margin-bottom: 1.875rem !important;
+            }
+
+            .image.style1 .frame {
+                width: 9rem;
+                border-radius: 100%;
+                border-style: solid;
+                border-color: #6C69FF;
+                border-width: 5px;
+                box-shadow: 0rem 1.75rem 1.375rem 0rem rgba(29,18,45,0.29);
+                transition: none;
+            }
+
+            .image.style1 .frame img {
+                transition: none;
+            }
+
+            h1, h2, h3, p {
+                direction: var(--site-language-direction);
+            }
+
+            h1 br + br, h2 br + br, h3 br + br, p br + br {
+                display: block;
+                content: ' ';
+            }
+
+            h1 .li, h2 .li, h3 .li, p .li {
+                display: list-item;
+                padding-left: 0.5em;
+                margin: 0.75em 0 0 1em;
+            }
+
+            #text01 br + br {
+                margin-top: 0.825rem;
+            }
+
+            #text01 {
+                color: #FFFFFF;
+                font-family: 'Manrope', sans-serif;
+                font-size: 2.5em;
+                line-height: 1.375;
+                font-weight: 500;
+            }
+
+            #text01 a {
+                text-decoration: none;
+            }
+
+            #text01 a:hover {
+                text-decoration: underline;
+            }
+
+            #text01 mark {
+                color: #A1A1A1;
+                background-color: transparent;
+            }
+
+            h1.style3, h2.style3, h3.style3, p.style3 br + br {
+                margin-top: 1.05rem;
+            }
+
+            h1.style3, h2.style3, h3.style3, p.style3 {
+                color: #8284AB;
+                font-family: 'Inter', sans-serif;
+                font-size: 1em;
+                line-height: 1.75;
+                font-weight: 200;
+            }
+
+            h1.style3 a, h2.style3 a, h3.style3 a, p.style3 a {
+                text-decoration: none;
+            }
+
+            h1.style3 a:hover, h2.style3 a:hover, h3.style3 a:hover, p.style3 a:hover {
+                text-decoration: underline;
+            }
+
+            h1.style3 mark, h2.style3 mark, h3.style3 mark, p.style3 mark {
+                color: #5F3FBA;
+                background-color: transparent;
+            }
+
+            h1.style1, h2.style1, h3.style1, p.style1 br + br {
+                margin-top: 0.75rem;
+            }
+
+            h1.style1, h2.style1, h3.style1, p.style1 {
+                color: #FFFFFF;
+                font-family: 'Manrope', sans-serif;
+                font-size: 1.875em;
+                line-height: 1.25;
+                font-weight: 600;
+            }
+
+            h1.style1 a, h2.style1 a, h3.style1 a, p.style1 a {
+                text-decoration: none;
+            }
+
+            h1.style1 a:hover, h2.style1 a:hover, h3.style1 a:hover, p.style1 a:hover {
+                text-decoration: underline;
+            }
+
+            h1.style1 mark, h2.style1 mark, h3.style1 mark, p.style1 mark {
+                color: #A1A1A1;
+                background-color: transparent;
+            }
+
+            h1.style2, h2.style2, h3.style2, p.style2 br + br {
+                margin-top: 1.05rem;
+            }
+
+            h1.style2, h2.style2, h3.style2, p.style2 {
+                color: #8284AB;
+                font-family: 'Inter', sans-serif;
+                font-size: 1em;
+                line-height: 1.75;
+                font-weight: 200;
+            }
+
+            h1.style2 a, h2.style2 a, h3.style2 a, p.style2 a {
+                text-decoration: none;
+            }
+
+            h1.style2 a:hover, h2.style2 a:hover, h3.style2 a:hover, p.style2 a:hover {
+                text-decoration: underline;
+            }
+
+            h1.style2 mark, h2.style2 mark, h3.style2 mark, p.style2 mark {
+                color: #5F3FBA;
+                background-color: transparent;
+            }
+
+            .buttons {
+                cursor: default;
+                padding: 0;
+                letter-spacing: 0;
+            }
+
+            .buttons li a {
+                align-items: center;
+                justify-content: center;
+                max-width: 100%;
+                text-align: center;
+                text-decoration: none;
+                vertical-align: middle;
+                white-space: nowrap;
+            }
+
+            .buttons.style1 {
+                width: 100%;
+                padding: 0.625rem 0;
+            }
+
+            .buttons.style1 li {
+                display: block;
+                margin: 1.25rem 0;
+            }
+
+            .buttons.style1 li:first-child {
+                margin-top: 0;
+            }
+
+            .buttons.style1 li:last-child {
+                margin-bottom: 0;
+            }
+
+            .buttons.style1 li a {
+                display: inline-flex;
+                width: 30rem;
+                height: 4rem;
+                line-height: 4rem;
+                vertical-align: middle;
+                padding: 0 2rem;
+                font-size: 1.125em;
+                font-family: 'Inter', sans-serif;
+                font-weight: 400;
+                border-radius: 0.75rem;
+                justify-content: flex-end;
+                flex-direction: row-reverse;
+                transition: transform 0.25s ease, color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+            }
+
+            .buttons.style1 li a svg {
+                display: block;
+                width: 1.75em;
+                min-width: 16px;
+                height: 100%;
+                fill: #FFFFFF;
+                flex-grow: 0;
+                flex-shrink: 0;
+                margin-right: calc(-0.125em + 0rem);
+                margin-left: 0.5em;
+                transition: fill 0.25s ease;
+            }
+
+            .buttons.style1 li a .label {
+                direction: var(--site-language-direction);
+                flex-grow: 1;
+                flex-shrink: 1;
+                width: 100%;
+                text-align: left;
+            }
+
+            .buttons.style1 .button {
+                background-color: rgba(255,255,255,0.051);
+                color: #FFFFFF;
+                background-image: linear-gradient(300deg, rgba(255,255,255,0.039) 0%, transparent 100%);
+                background-position: 0% 0%;
+                background-repeat: repeat;
+                background-size: cover;
+            }
+
+            .buttons.style1 li a:hover {
+                transform: scale(1.0425);
+            }
+
+            #buttons02 .n01 {
+                background-color: #6E7DFB;
+                background-image: linear-gradient(300deg, #3957F7 0%, rgba(110,125,251,0.008) 100%);
+            }
+
+            #buttons02 .n02 {
+                background-color: #6E7DFB;
+                background-image: linear-gradient(300deg, #3957F7 0%, rgba(110,125,251,0.008) 100%);
             }
 
             .container {
@@ -352,841 +574,498 @@
                 border-bottom-right-radius: inherit;
             }
 
-            #container01 > .wrapper > .inner {
-                padding: 2.5rem 2rem;
-                border-radius: calc(1rem - 1px);
+            .container.style2 > .wrapper > .inner {
+                text-align: center;
+                padding: 3.25rem 3.25rem;
             }
 
-            #container01 {
+            .container.style2 {
                 display: flex;
                 width: 100%;
-                -moz-align-items: center;
-                -webkit-align-items: center;
-                -ms-align-items: center;
                 align-items: center;
-                -moz-justify-content: center;
-                -webkit-justify-content: center;
-                -ms-justify-content: center;
                 justify-content: center;
-                background-color: transparent;
-                border-style: solid;
-                border-color: #E8E8E8;
-                border-bottom-width: 1px;
+                background-color: rgba(66,57,110,0.361);
             }
 
-            #container01 > .wrapper {
+            .container.style2 > .wrapper {
                 width: 100%;
-                max-width: 24rem;
+                max-width: 100%;
             }
 
-            #container01.default > .wrapper > .inner > * {
-                margin-top: 1rem;
-                margin-bottom: 1rem;
+            .container.style2.default > .wrapper > .inner > * {
+                margin-top: 1.5rem;
+                margin-bottom: 1.5rem;
             }
 
-            #container01.default > .wrapper > .inner > *:first-child {
+            .container.style2.default > .wrapper > .inner > *:first-child {
                 margin-top: 0 !important;
             }
 
-            #container01.default > .wrapper > .inner > *:last-child {
+            .container.style2.default > .wrapper > .inner > *:last-child {
                 margin-bottom: 0 !important;
             }
 
-            #container01.columns > .wrapper > .inner {
-                -moz-flex-wrap: wrap;
-                -webkit-flex-wrap: wrap;
-                -ms-flex-wrap: wrap;
+            .container.style2.columns > .wrapper > .inner {
                 flex-wrap: wrap;
                 display: flex;
-                -moz-align-items: flex-start;
-                -webkit-align-items: flex-start;
-                -ms-align-items: flex-start;
-                align-items: flex-start;
+                align-items: center;
             }
 
-            #container01.columns > .wrapper > .inner > * {
-                -moz-flex-shrink: 0;
-                -webkit-flex-shrink: 0;
-                -ms-flex-shrink: 0;
+            .container.style2.columns > .wrapper > .inner > * {
                 flex-shrink: 0;
-                -moz-flex-grow: 0;
-                -webkit-flex-grow: 0;
-                -ms-flex-grow: 0;
                 flex-grow: 0;
                 max-width: 100%;
-                padding: 0 0 0 6rem;
+                padding: 0 0 0 3rem;
             }
 
-            #container01.columns > .wrapper > .inner > * > * {
-                margin-top: 1rem;
-                margin-bottom: 1rem;
+            .container.style2.columns > .wrapper > .inner > * > * {
+                margin-top: 1.5rem;
+                margin-bottom: 1.5rem;
             }
 
-            #container01.columns > .wrapper > .inner > * > *:first-child {
+            .container.style2.columns > .wrapper > .inner > * > *:first-child {
                 margin-top: 0 !important;
             }
 
-            #container01.columns > .wrapper > .inner > * > *:last-child {
+            .container.style2.columns > .wrapper > .inner > * > *:last-child {
                 margin-bottom: 0 !important;
             }
 
-            #container01.columns > .wrapper > .inner > *:first-child {
-                margin-left: -6rem;
+            .container.style2.columns > .wrapper > .inner > *:first-child {
+                margin-left: -3rem;
             }
 
-            #container01.default > .wrapper > .inner > .full {
-                margin-left: calc(-2rem);
-                width: calc(100% + 4rem + 0.4725px);
+            .container.style2.default > .wrapper > .inner > .full {
+                margin-left: calc(-3.25rem);
+                width: calc(100% + 6.5rem + 0.4725px);
                 max-width: none;
             }
 
-            #container01.default > .wrapper > .inner > .full:first-child {
+            .container.style2.default > .wrapper > .inner > .full:first-child {
+                margin-top: -3.25rem !important;
+                border-top-left-radius: inherit;
+                border-top-right-radius: inherit;
+            }
+
+            .container.style2.default > .wrapper > .inner > .full:last-child {
+                margin-bottom: -3.25rem !important;
+                border-bottom-left-radius: inherit;
+                border-bottom-right-radius: inherit;
+            }
+
+            .container.style2.columns > .wrapper > .inner > div > .full {
+                margin-left: calc(-1.5rem);
+                width: calc(100% + 3rem + 0.4725px);
+                max-width: none;
+            }
+
+            .container.style2.columns > .wrapper > .inner > div:first-child > .full {
+                margin-left: calc(-3.25rem);
+                width: calc(100% + 4.75rem + 0.4725px);
+            }
+
+            .container.style2.columns > .wrapper > .inner > div:last-child > .full {
+                width: calc(100% + 4.75rem + 0.4725px);
+            }
+
+            .container.style2.columns > .wrapper > .inner > div > .full:first-child {
+                margin-top: calc(-3.25rem) !important;
+            }
+
+            .container.style2.columns > .wrapper > .inner > div > .full:last-child {
+                margin-bottom: calc(-3.25rem) !important;
+            }
+
+            .container.style2.columns > .wrapper > .inner > .full {
+                align-self: stretch;
+            }
+
+            .container.style2.columns > .wrapper > .inner > .full:first-child {
+                border-top-left-radius: inherit;
+                border-bottom-left-radius: inherit;
+            }
+
+            .container.style2.columns > .wrapper > .inner > .full:last-child {
+                border-top-right-radius: inherit;
+                border-bottom-right-radius: inherit;
+            }
+
+            .container.style2.columns > .wrapper > .inner > .full > .full:first-child:last-child {
+                height: calc(100% + 6.5rem);
+                border-radius: inherit;
+            }
+
+            .container.style2.columns > .wrapper > .inner > .full > .full:first-child:last-child > * {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: inherit;
+            }
+
+            .container.style2.columns > .wrapper > .inner > .full > .full:first-child:last-child > * > * {
+                height: 100%;
+                border-radius: inherit;
+            }
+
+            .container.style1 > .wrapper > .inner {
+                text-align: center;
+                padding: 2.5rem 2.5rem;
+            }
+
+            .container.style1 {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                background-color: #241F40;
+            }
+
+            .container.style1 > .wrapper {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .container.style1.default > .wrapper > .inner > * {
+                margin-top: 0.25rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .container.style1.default > .wrapper > .inner > *:first-child {
+                margin-top: 0 !important;
+            }
+
+            .container.style1.default > .wrapper > .inner > *:last-child {
+                margin-bottom: 0 !important;
+            }
+
+            .container.style1.columns > .wrapper > .inner {
+                flex-wrap: wrap;
+                display: flex;
+                align-items: center;
+            }
+
+            .container.style1.columns > .wrapper > .inner > * {
+                flex-shrink: 0;
+                flex-grow: 0;
+                max-width: 100%;
+                padding: 0 0 0 1rem;
+            }
+
+            .container.style1.columns > .wrapper > .inner > * > * {
+                margin-top: 0.25rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .container.style1.columns > .wrapper > .inner > * > *:first-child {
+                margin-top: 0 !important;
+            }
+
+            .container.style1.columns > .wrapper > .inner > * > *:last-child {
+                margin-bottom: 0 !important;
+            }
+
+            .container.style1.columns > .wrapper > .inner > *:first-child {
+                margin-left: -1rem;
+            }
+
+            .container.style1.default > .wrapper > .inner > .full {
+                margin-left: calc(-2.5rem);
+                width: calc(100% + 5rem + 0.4725px);
+                max-width: none;
+            }
+
+            .container.style1.default > .wrapper > .inner > .full:first-child {
                 margin-top: -2.5rem !important;
                 border-top-left-radius: inherit;
                 border-top-right-radius: inherit;
             }
 
-            #container01.default > .wrapper > .inner > .full:last-child {
+            .container.style1.default > .wrapper > .inner > .full:last-child {
                 margin-bottom: -2.5rem !important;
                 border-bottom-left-radius: inherit;
                 border-bottom-right-radius: inherit;
             }
 
-            #container01.columns > .wrapper > .inner > div > .full {
-                margin-left: calc(-3rem);
-                width: calc(100% + 6rem + 0.4725px);
+            .container.style1.columns > .wrapper > .inner > div > .full {
+                margin-left: calc(-0.5rem);
+                width: calc(100% + 1rem + 0.4725px);
                 max-width: none;
             }
 
-            #container01.columns > .wrapper > .inner > div:first-child > .full {
-                margin-left: calc(-2rem);
-                width: calc(100% + 5rem + 0.4725px);
+            .container.style1.columns > .wrapper > .inner > div:first-child > .full {
+                margin-left: calc(-2.5rem);
+                width: calc(100% + 3rem + 0.4725px);
             }
 
-            #container01.columns > .wrapper > .inner > div:last-child > .full {
-                width: calc(100% + 5rem + 0.4725px);
+            .container.style1.columns > .wrapper > .inner > div:last-child > .full {
+                width: calc(100% + 3rem + 0.4725px);
             }
 
-            #container01.columns > .wrapper > .inner > div > .full:first-child {
+            .container.style1.columns > .wrapper > .inner > div > .full:first-child {
                 margin-top: calc(-2.5rem) !important;
             }
 
-            #container01.columns > .wrapper > .inner > div > .full:last-child {
+            .container.style1.columns > .wrapper > .inner > div > .full:last-child {
                 margin-bottom: calc(-2.5rem) !important;
             }
 
-            #container01.columns > .wrapper > .inner > div:first-child, #container01.columns > .wrapper > .inner > div:first-child > .full:first-child {
-                border-top-left-radius: inherit;
-            }
-
-            #container01.columns > .wrapper > .inner > div:last-child, #container01.columns > .wrapper > .inner > div:last-child > .full:first-child {
-                border-top-right-radius: inherit;
-            }
-
-            #container01.columns > .wrapper > .inner > .full {
+            .container.style1.columns > .wrapper > .inner > .full {
                 align-self: stretch;
             }
 
-            #container01.columns > .wrapper > .inner > .full:first-child {
+            .container.style1.columns > .wrapper > .inner > .full:first-child {
                 border-top-left-radius: inherit;
                 border-bottom-left-radius: inherit;
             }
 
-            #container01.columns > .wrapper > .inner > .full:last-child {
+            .container.style1.columns > .wrapper > .inner > .full:last-child {
                 border-top-right-radius: inherit;
                 border-bottom-right-radius: inherit;
             }
 
-            #container01.columns > .wrapper > .inner > .full > .full:first-child:last-child {
+            .container.style1.columns > .wrapper > .inner > .full > .full:first-child:last-child {
                 height: calc(100% + 5rem);
                 border-radius: inherit;
             }
 
-            #container01.columns > .wrapper > .inner > .full > .full:first-child:last-child > * {
+            .container.style1.columns > .wrapper > .inner > .full > .full:first-child:last-child > * {
                 position: absolute;
                 width: 100%;
                 height: 100%;
                 border-radius: inherit;
             }
 
-            #container01.columns > .wrapper > .inner > .full > .full:first-child:last-child > * > * {
+            .container.style1.columns > .wrapper > .inner > .full > .full:first-child:last-child > * > * {
                 height: 100%;
                 border-radius: inherit;
             }
 
-            #container03 > .wrapper > .inner {
-                text-align: left;
-                padding: 2rem 2rem;
-                border-radius: calc(1rem - 1px);
+            #container02 > .wrapper > .inner > :nth-child(1) {
+                width: calc(33.33333% + 0.33rem);
             }
 
-            #container03 {
-                display: flex;
-                width: 100%;
-                -moz-align-items: center;
-                -webkit-align-items: center;
-                -ms-align-items: center;
-                align-items: center;
-                -moz-justify-content: center;
-                -webkit-justify-content: center;
-                -ms-justify-content: center;
-                justify-content: center;
-                background-color: transparent;
-                border-style: solid;
-                border-color: #E8E8E8;
-                border-bottom-width: 1px;
+            #container02 > .wrapper > .inner > :nth-child(2) {
+                width: calc(33.33333% + 0.33rem);
             }
 
-            #container03 > .wrapper {
-                width: 100%;
-                max-width: 24rem;
+            #container02 > .wrapper > .inner > :nth-child(3) {
+                width: calc(33.33333% + 0.33rem);
             }
 
-            #container03.default > .wrapper > .inner > * {
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-            }
-
-            #container03.default > .wrapper > .inner > *:first-child {
-                margin-top: 0 !important;
-            }
-
-            #container03.default > .wrapper > .inner > *:last-child {
-                margin-bottom: 0 !important;
-            }
-
-            #container03.columns > .wrapper > .inner {
-                -moz-flex-wrap: wrap;
-                -webkit-flex-wrap: wrap;
-                -ms-flex-wrap: wrap;
-                flex-wrap: wrap;
-                display: flex;
-                -moz-align-items: flex-start;
-                -webkit-align-items: flex-start;
-                -ms-align-items: flex-start;
-                align-items: flex-start;
-            }
-
-            #container03.columns > .wrapper > .inner > * {
-                -moz-flex-shrink: 0;
-                -webkit-flex-shrink: 0;
-                -ms-flex-shrink: 0;
-                flex-shrink: 0;
-                -moz-flex-grow: 0;
-                -webkit-flex-grow: 0;
-                -ms-flex-grow: 0;
-                flex-grow: 0;
-                max-width: 100%;
-                padding: 0 0 0 6rem;
-            }
-
-            #container03.columns > .wrapper > .inner > * > * {
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-            }
-
-            #container03.columns > .wrapper > .inner > * > *:first-child {
-                margin-top: 0 !important;
-            }
-
-            #container03.columns > .wrapper > .inner > * > *:last-child {
-                margin-bottom: 0 !important;
-            }
-
-            #container03.columns > .wrapper > .inner > *:first-child {
-                margin-left: -6rem;
-            }
-
-            #container03.default > .wrapper > .inner > .full {
-                margin-left: calc(-2rem);
-                width: calc(100% + 4rem + 0.4725px);
-                max-width: none;
-            }
-
-            #container03.default > .wrapper > .inner > .full:first-child {
-                margin-top: -2rem !important;
-                border-top-left-radius: inherit;
-                border-top-right-radius: inherit;
-            }
-
-            #container03.default > .wrapper > .inner > .full:last-child {
-                margin-bottom: -2rem !important;
-                border-bottom-left-radius: inherit;
-                border-bottom-right-radius: inherit;
-            }
-
-            #container03.columns > .wrapper > .inner > div > .full {
-                margin-left: calc(-3rem);
-                width: calc(100% + 6rem + 0.4725px);
-                max-width: none;
-            }
-
-            #container03.columns > .wrapper > .inner > div:first-child > .full {
-                margin-left: calc(-2rem);
-                width: calc(100% + 5rem + 0.4725px);
-            }
-
-            #container03.columns > .wrapper > .inner > div:last-child > .full {
-                width: calc(100% + 5rem + 0.4725px);
-            }
-
-            #container03.columns > .wrapper > .inner > div > .full:first-child {
-                margin-top: calc(-2rem) !important;
-            }
-
-            #container03.columns > .wrapper > .inner > div > .full:last-child {
-                margin-bottom: calc(-2rem) !important;
-            }
-
-            #container03.columns > .wrapper > .inner > div:first-child, #container03.columns > .wrapper > .inner > div:first-child > .full:first-child {
-                border-top-left-radius: inherit;
-            }
-
-            #container03.columns > .wrapper > .inner > div:last-child, #container03.columns > .wrapper > .inner > div:last-child > .full:first-child {
-                border-top-right-radius: inherit;
-            }
-
-            #container03.columns > .wrapper > .inner > .full {
-                align-self: stretch;
-            }
-
-            #container03.columns > .wrapper > .inner > .full:first-child {
-                border-top-left-radius: inherit;
-                border-bottom-left-radius: inherit;
-            }
-
-            #container03.columns > .wrapper > .inner > .full:last-child {
-                border-top-right-radius: inherit;
-                border-bottom-right-radius: inherit;
-            }
-
-            #container03.columns > .wrapper > .inner > .full > .full:first-child:last-child {
-                height: calc(100% + 4rem);
-                border-radius: inherit;
-            }
-
-            #container03.columns > .wrapper > .inner > .full > .full:first-child:last-child > * {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                border-radius: inherit;
-            }
-
-            #container03.columns > .wrapper > .inner > .full > .full:first-child:last-child > * > * {
-                height: 100%;
-                border-radius: inherit;
-            }
-
-            #container02 > .wrapper > .inner {
-                padding: 2rem 2rem;
-            }
-
-            #container02 {
-                display: flex;
-                width: 100%;
-                -moz-align-items: center;
-                -webkit-align-items: center;
-                -ms-align-items: center;
-                align-items: center;
-                -moz-justify-content: center;
-                -webkit-justify-content: center;
-                -ms-justify-content: center;
-                justify-content: center;
-                background-color: transparent;
-            }
-
-            #container02 > .wrapper {
-                width: 100%;
-                max-width: 24rem;
-            }
-
-            #container02.default > .wrapper > .inner > * {
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-            }
-
-            #container02.default > .wrapper > .inner > *:first-child {
-                margin-top: 0 !important;
-            }
-
-            #container02.default > .wrapper > .inner > *:last-child {
-                margin-bottom: 0 !important;
-            }
-
-            #container02.columns > .wrapper > .inner {
-                -moz-flex-wrap: wrap;
-                -webkit-flex-wrap: wrap;
-                -ms-flex-wrap: wrap;
-                flex-wrap: wrap;
-                display: flex;
-                -moz-align-items: flex-start;
-                -webkit-align-items: flex-start;
-                -ms-align-items: flex-start;
-                align-items: flex-start;
-            }
-
-            #container02.columns > .wrapper > .inner > * {
-                -moz-flex-shrink: 0;
-                -webkit-flex-shrink: 0;
-                -ms-flex-shrink: 0;
-                flex-shrink: 0;
-                -moz-flex-grow: 0;
-                -webkit-flex-grow: 0;
-                -ms-flex-grow: 0;
-                flex-grow: 0;
-                max-width: 100%;
-                padding: 0 0 0 6rem;
-            }
-
-            #container02.columns > .wrapper > .inner > * > * {
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-            }
-
-            #container02.columns > .wrapper > .inner > * > *:first-child {
-                margin-top: 0 !important;
-            }
-
-            #container02.columns > .wrapper > .inner > * > *:last-child {
-                margin-bottom: 0 !important;
-            }
-
-            #container02.columns > .wrapper > .inner > *:first-child {
-                margin-left: -6rem;
-            }
-
-            #container02.default > .wrapper > .inner > .full {
-                margin-left: calc(-2rem);
-                width: calc(100% + 4rem + 0.4725px);
-                max-width: none;
-            }
-
-            #container02.default > .wrapper > .inner > .full:first-child {
-                margin-top: -2rem !important;
-                border-top-left-radius: inherit;
-                border-top-right-radius: inherit;
-            }
-
-            #container02.default > .wrapper > .inner > .full:last-child {
-                margin-bottom: -2rem !important;
-                border-bottom-left-radius: inherit;
-                border-bottom-right-radius: inherit;
-            }
-
-            #container02.columns > .wrapper > .inner > div > .full {
-                margin-left: calc(-3rem);
-                width: calc(100% + 6rem + 0.4725px);
-                max-width: none;
-            }
-
-            #container02.columns > .wrapper > .inner > div:first-child > .full {
-                margin-left: calc(-2rem);
-                width: calc(100% + 5rem + 0.4725px);
-            }
-
-            #container02.columns > .wrapper > .inner > div:last-child > .full {
-                width: calc(100% + 5rem + 0.4725px);
-            }
-
-            #container02.columns > .wrapper > .inner > div > .full:first-child {
-                margin-top: calc(-2rem) !important;
-            }
-
-            #container02.columns > .wrapper > .inner > div > .full:last-child {
-                margin-bottom: calc(-2rem) !important;
-            }
-
-            #container02.columns > .wrapper > .inner > div:first-child, #container02.columns > .wrapper > .inner > div:first-child > .full:first-child {
-                border-top-left-radius: inherit;
-            }
-
-            #container02.columns > .wrapper > .inner > div:last-child, #container02.columns > .wrapper > .inner > div:last-child > .full:first-child {
-                border-top-right-radius: inherit;
-            }
-
-            #container02.columns > .wrapper > .inner > .full {
-                align-self: stretch;
-            }
-
-            #container02.columns > .wrapper > .inner > .full:first-child {
-                border-top-left-radius: inherit;
-                border-bottom-left-radius: inherit;
-            }
-
-            #container02.columns > .wrapper > .inner > .full:last-child {
-                border-top-right-radius: inherit;
-                border-bottom-right-radius: inherit;
-            }
-
-            #container02.columns > .wrapper > .inner > .full > .full:first-child:last-child {
-                height: calc(100% + 4rem);
-                border-radius: inherit;
-            }
-
-            #container02.columns > .wrapper > .inner > .full > .full:first-child:last-child > * {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                border-radius: inherit;
-            }
-
-            #container02.columns > .wrapper > .inner > .full > .full:first-child:last-child > * > * {
-                height: 100%;
-                border-radius: inherit;
-            }
-
-            .image {
-                position: relative;
-                overflow: hidden;
-                max-width: 100%;
-                display: block;
-            }
-
-            .image a, .image span {
-                position: relative;
-                max-width: 100%;
-                display: inline-block;
-                vertical-align: top;
-            }
-
-            .image a img, .image span img {
-                display: block;
-            }
-
-            .image img {
-                width: 100%;
-                max-width: 100%;
-                display: inline-block;
-                vertical-align: top;
-            }
-
-            .image.full img {
-                display: block;
-            }
-
-            .image.full:first-child img {
-                border-top-left-radius: inherit;
-                border-top-right-radius: inherit;
-            }
-
-            .image.full:last-child img {
-                border-bottom-left-radius: inherit;
-                border-bottom-right-radius: inherit;
-            }
-
-            .image.full a, .image.full span {
-                display: block;
-            }
-
-            #image01 a, #image01 span {
-                border-radius: 100%;
-            }
-
-            #image01 img {
-                width: 5.75rem;
-                border-radius: 100%;
-            }
-
-            h1, h2, h3, p {
-                direction: var(--site-language-direction);
-            }
-
-            h1 br + br, h2 br + br, h3 br + br, p br + br {
-                display: block;
-                content: ' ';
-            }
-
-            h1 .li, h2 .li, h3 .li, p .li {
-                display: list-item;
-                padding-left: 0.5em;
-                margin: 0.75em 0 0 1em;
-            }
-
-            #text03 br + br {
-                margin-top: 0.75rem;
-            }
-
-            #text03 {
-                color: #878787;
-                font-family: 'Public Sans', sans-serif;
-                letter-spacing: -0.05rem;
-                width: 100%;
-                font-size: 2em;
-                line-height: 1.25;
-                font-weight: 300;
-            }
-
-            #text03 a {
-                text-decoration: underline;
-            }
-
-            #text03 a:hover {
-                text-decoration: none;
-            }
-
-            #text01 br + br {
-                margin-top: 1.05rem;
-            }
-
-            #text01 {
-                color: #878787;
-                font-family: 'Arial', sans-serif;
-                letter-spacing: -0.025rem;
-                width: 100%;
-                font-size: 1em;
-                line-height: 1.75;
-                font-weight: 400;
-            }
-
-            #text01 a {
-                color: #6E73E6;
-                text-decoration: underline;
-            }
-
-            #text01 a:hover {
-                color: #9095FC;
-            }
-
-            #credits br + br {
-                margin-top: 0.9rem;
-            }
-
-            #credits {
-                color: #878787;
-                font-family: 'Arial', sans-serif;
-                letter-spacing: -0.025rem;
-                width: 100%;
-                font-size: 0.8em;
-                line-height: 1.5;
-                font-weight: 300;
-                cursor: default;
-                margin-top: 1rem !important;
-            }
-
-            #credits a {
-                text-decoration: none !important;
-                -moz-transition: opacity 0.25s ease;
-                -webkit-transition: opacity 0.25s ease;
-                -ms-transition: opacity 0.25s ease;
-                transition: opacity 0.25s ease;
-                opacity: 0.5;
-            }
-
-            #credits a:hover {
-                text-decoration: none !important;
-                opacity: 1;
-            }
-
-            .buttons {
+            .icons {
                 cursor: default;
                 padding: 0;
                 letter-spacing: 0;
             }
 
-            .buttons li a {
-                -moz-align-items: center;
-                -webkit-align-items: center;
-                -ms-align-items: center;
+            .icons li {
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+                z-index: 1;
+            }
+
+            .icons li a {
+                display: flex;
                 align-items: center;
-                -moz-justify-content: center;
-                -webkit-justify-content: center;
-                -ms-justify-content: center;
                 justify-content: center;
-                direction: var(--site-language-direction);
-                max-width: 100%;
-                text-align: center;
+            }
+
+            .icons li a svg {
+                display: block;
+                position: relative;
+            }
+
+            .icons li a + svg {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                pointer-events: none;
+            }
+
+            .icons li a .label {
+                display: none;
+            }
+
+            .icons.style1 {
+                font-size: 2.5em;
+                width: calc(100% + 1.625rem);
+                margin-left: -0.8125rem;
+            }
+
+            .icons.style1 li {
+                margin: 0.8125rem;
+            }
+
+            .icons.style1 li a {
+                border-radius: 100%;
+                width: 2em;
+                height: 2em;
+                transition: transform 0.25s ease, color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+            }
+
+            .icons.style1 li a svg {
+                width: 60%;
+                height: 60%;
+                transition: fill 0.25s ease;
+            }
+
+            .icons.style1 a {
+                background-color: rgba(255,255,255,0.051);
+                background-image: linear-gradient(37deg, rgba(255,255,255,0.039) 0%, transparent 100%);
+                background-position: 0% 0%;
+                background-repeat: repeat;
+                background-size: cover;
+            }
+
+            .icons.style1 a svg {
+                fill: #FFFFFF;
+            }
+
+            .icons.style1 li a + svg {
+                transition: transform 0.25s ease, fill 0.25s ease, stroke 0.25s ease;
+            }
+
+            .icons.style1 li a:hover {
+                transform: translateY(-7.75%);
+            }
+
+            .icons.style1 li a:hover + svg {
+                transform: translateY(-7.75%);
+            }
+
+            #icons01 .n01 {
+                background-color: #D13A3A;
+                background-image: linear-gradient(37deg, #E82C2C 0%, rgba(209,58,58,0.008) 100%);
+            }
+
+            #icons02 .n01 {
+                background-color: #2C9EFA;
+                background-image: linear-gradient(37deg, #2C66FA 0%, rgba(44,158,250,0.008) 100%);
+            }
+
+            #icons03 .n01 {
+                background-color: #C060FB;
+                background-image: linear-gradient(37deg, #6038FF 0%, rgba(192,96,251,0.008) 100%);
+            }
+
+            .icc-credits {
+                display: block;
+                position: relative;
+                transition-delay: 0s !important;
+                opacity: 1 !important;
+            }
+
+            .icc-credits span {
+                border-radius: 24px;
+                cursor: pointer;
+                display: inline-block;
+                font-family: Arial, sans-serif;
+                font-size: 12px;
+                letter-spacing: 0;
+                line-height: 1;
+                position: relative;
                 text-decoration: none;
-                vertical-align: middle;
-                white-space: nowrap;
+                width: auto;
             }
 
-            #buttons01 {
-                width: calc(100% + 0.625rem);
-                margin-left: -0.3125rem;
-            }
-
-            #buttons01 li {
+            .icc-credits span a {
                 display: inline-block;
-                vertical-align: middle;
-                max-width: calc(100% - 0.625rem);
-                margin: 0.3125rem;
+                padding: 0.5em 0.375em;
+                position: relative;
+                text-decoration: none;
+                transition: color 0.25s ease, transform 0.25s ease;
+                z-index: 1;
             }
 
-            #buttons01 li a {
-                display: flex;
-                width: 30rem;
-                height: 3rem;
-                line-height: 3rem;
-                vertical-align: middle;
-                padding: 0 1.5rem;
-                text-transform: uppercase;
-                font-size: 0.625em;
-                font-family: 'Public Sans', sans-serif;
-                letter-spacing: 0.2rem;
-                padding-left: calc(0.2rem + 1.5rem);
-                font-weight: 700;
-                border-radius: 0.375rem;
-                -moz-justify-content: flex-end;
-                -webkit-justify-content: flex-end;
-                -ms-justify-content: flex-end;
-                justify-content: flex-end;
-                -moz-flex-direction: row-reverse;
-                -webkit-flex-direction: row-reverse;
-                -ms-flex-direction: row-reverse;
-                flex-direction: row-reverse;
+            .icc-credits span a:before {
+                transition: opacity 0.25s ease;
+                opacity: 1;
+                content: '( ';
             }
 
-            #buttons01 li a svg {
+            .icc-credits span a:after {
+                transition: opacity 0.25s ease;
+                opacity: 1;
+                content: ' )';
+            }
+
+            .icc-credits span::after {
+                transition: opacity 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+                content: '';
                 display: block;
-                -moz-transition: fill 0.25s ease;
-                -webkit-transition: fill 0.25s ease;
-                -ms-transition: fill 0.25s ease;
-                transition: fill 0.25s ease;
-                width: 2.34375em;
-                min-width: 18px;
-                height: 100%;
-                fill: #FFFFFF;
-                -moz-flex-grow: 0;
-                -webkit-flex-grow: 0;
-                -ms-flex-grow: 0;
-                flex-grow: 0;
-                -moz-flex-shrink: 0;
-                -webkit-flex-shrink: 0;
-                -ms-flex-shrink: 0;
-                flex-shrink: 0;
-                margin-right: calc(-0.125em + 0.2rem);
-                margin-left: 0.5em;
+                position: absolute;
+                top: -1px;
+                left: -1px;
+                width: calc(100% + 2px);
+                height: calc(100% + 2px);
+                background-image: linear-gradient(30deg, #A464A1 15%, #3B5DAD 85%);
+                opacity: 0;
+                pointer-events: none;
+                border-radius: inherit;
+                box-shadow: 0 0.25em 1.25em 0 rgba(0,0,0,0.25);
             }
 
-            #buttons01 li a .label {
-                -moz-flex-grow: 1;
-                -webkit-flex-grow: 1;
-                -ms-flex-grow: 1;
-                flex-grow: 1;
-                -moz-flex-shrink: 1;
-                -webkit-flex-shrink: 1;
-                -ms-flex-shrink: 1;
-                flex-shrink: 1;
-                width: 100%;
-                text-align: left;
+            .icc-credits span:hover {
+                text-transform: none !important;
             }
 
-            #buttons01 .button {
-                background-color: #6E73E6;
-                color: #FFFFFF;
+            .icc-credits span:hover a {
+                color: #ffffff !important;
+                transform: scale(1.1) translateY(-0.05rem);
             }
 
-            #buttons01 .button:hover {
-                background-color: #9095FC !important;
+            .icc-credits span:hover a:before {
+                opacity: 0;
             }
 
-            #buttons01 .n01 {
-                background-color: #1DA1F2;
+            .icc-credits span:hover a:after {
+                opacity: 0;
             }
 
-            #buttons01 .n02 {
-                background-color: #CC0000;
+            .icc-credits span:hover::after {
+                opacity: 1;
+                transform: scale(1.1) translateY(-0.05rem);
             }
 
-            #buttons01 .n03 {
-                background-color: #161B22;
+            #credits span {
+                background-color: rgba(80,80,80,0.5);
+                color: rgba(224,224,224,0.75);
+                margin-top: 1.5rem !important;
             }
 
-            #buttons02 {
-                width: calc(100% + 0.625rem);
-                margin-left: -0.3125rem;
+            #credits span a:before {
+                opacity: 0;
             }
 
-            #buttons02 li {
-                display: inline-block;
-                vertical-align: middle;
-                max-width: calc(100% - 0.625rem);
-                margin: 0.3125rem;
+            #credits span a:after {
+                opacity: 0;
             }
 
-            #buttons02 li a {
-                display: flex;
-                width: 30rem;
-                height: 3rem;
-                line-height: 3rem;
-                vertical-align: middle;
-                padding: 0 1.5rem;
-                text-transform: uppercase;
-                font-size: 0.625em;
-                font-family: 'Public Sans', sans-serif;
-                letter-spacing: 0.2rem;
-                padding-left: calc(0.2rem + 1.5rem);
-                font-weight: 700;
-                border-radius: 0.375rem;
-                -moz-justify-content: flex-end;
-                -webkit-justify-content: flex-end;
-                -ms-justify-content: flex-end;
-                justify-content: flex-end;
-                -moz-flex-direction: row-reverse;
-                -webkit-flex-direction: row-reverse;
-                -ms-flex-direction: row-reverse;
-                flex-direction: row-reverse;
-            }
-
-            #buttons02 li a svg {
-                display: block;
-                -moz-transition: fill 0.25s ease;
-                -webkit-transition: fill 0.25s ease;
-                -ms-transition: fill 0.25s ease;
-                transition: fill 0.25s ease;
-                width: 2.34375em;
-                min-width: 18px;
-                height: 100%;
-                fill: #FFFFFF;
-                -moz-flex-grow: 0;
-                -webkit-flex-grow: 0;
-                -ms-flex-grow: 0;
-                flex-grow: 0;
-                -moz-flex-shrink: 0;
-                -webkit-flex-shrink: 0;
-                -ms-flex-shrink: 0;
-                flex-shrink: 0;
-                margin-right: calc(-0.125em + 0.2rem);
-                margin-left: 0.5em;
-            }
-
-            #buttons02 li a .label {
-                -moz-flex-grow: 1;
-                -webkit-flex-grow: 1;
-                -ms-flex-grow: 1;
-                flex-grow: 1;
-                -moz-flex-shrink: 1;
-                -webkit-flex-shrink: 1;
-                -ms-flex-shrink: 1;
-                flex-shrink: 1;
-                width: 100%;
-                text-align: left;
-            }
-
-            #buttons02 .button {
-                background-color: #6E73E6;
-                color: #FFFFFF;
-            }
-
-            #buttons02 .button:hover {
-                background-color: #9095FC !important;
+            #main > .inner > .full:nth-last-child(2) {
+                border-bottom-left-radius: inherit;
+                border-bottom-right-radius: inherit;
             }
 
             @media (max-width: 1680px) {
                 html {
-                    font-size: 12pt;
+                    font-size: 13pt;
                 }
             }
 
             @media (max-width: 1280px) {
                 html {
-                    font-size: 12pt;
+                    font-size: 13pt;
                 }
             }
 
             @media (max-width: 980px) {
                 html {
-                    font-size: 10pt;
+                    font-size: 11pt;
                 }
             }
 
@@ -1195,8 +1074,16 @@
                     font-size: 12pt;
                 }
 
+                #wrapper {
+                    padding: 0rem 0rem 0rem 0rem;
+                }
+
+                #main {
+                    border-radius: 0;
+                }
+
                 #main > .inner {
-                    padding: 0rem 0rem;
+                    padding: 2rem 2rem;
                 }
 
                 #main > .inner > * {
@@ -1205,563 +1092,336 @@
                 }
 
                 #main > .inner > .full {
-                    margin-left: calc(0rem);
-                    width: calc(100% + 0rem + 0.4725px);
-                    max-width: calc(100% + 0rem + 0.4725px);
+                    margin-left: calc(-2rem);
+                    width: calc(100% + 4rem + 0.4725px);
+                    max-width: calc(100% + 4rem + 0.4725px);
                 }
 
                 #main > .inner > .full:first-child {
-                    margin-top: 0rem !important;
+                    margin-top: -2rem !important;
                 }
 
                 #main > .inner > .full:last-child {
-                    margin-bottom: 0rem !important;
+                    margin-bottom: -2rem !important;
                 }
 
                 #main > .inner > .full.screen {
                     margin-left: -50vw;
                 }
 
-                #container01 > .wrapper > .inner {
-                    padding: 2.5rem 2rem;
+                .image.style1:not(:first-child) {
+                    margin-top: 1.40625rem !important;
                 }
 
-                #container01 > .wrapper {
-                    max-width: 100%;
+                .image.style1:not(:last-child) {
+                    margin-bottom: 1.40625rem !important;
                 }
 
-                #container01.default > .wrapper > .inner > * {
-                    margin-top: 1rem;
-                    margin-bottom: 1rem;
-                }
-
-                #container01.columns > .wrapper > .inner {
-                    -moz-flex-direction: column !important;
-                    -webkit-flex-direction: column !important;
-                    -ms-flex-direction: column !important;
-                    flex-direction: column !important;
-                    -moz-flex-wrap: nowrap !important;
-                    -webkit-flex-wrap: nowrap !important;
-                    -ms-flex-wrap: nowrap !important;
-                    flex-wrap: nowrap !important;
-                }
-
-                #container01.columns > .wrapper > .inner > span {
-                    display: none;
-                }
-
-                #container01.columns > .wrapper > .inner > * > * {
-                    margin-top: 1rem;
-                    margin-bottom: 1rem;
-                }
-
-                #container01.columns > .wrapper > .inner > * {
-                    padding: 3rem 0 !important;
-                }
-
-                #container01.columns > .wrapper > .inner > *:first-child {
-                    margin-left: 0 !important;
-                    padding-top: 0 !important;
-                }
-
-                #container01.columns > .wrapper > .inner > *:last-child {
-                    padding-bottom: 0 !important;
-                }
-
-                #container01.columns > .wrapper > .inner > div.after-spacer {
-                    padding-top: 0 !important;
-                }
-
-                #container01.columns > .wrapper > .inner > div.before-spacer {
-                    padding-bottom: 0 !important;
-                }
-
-                #container01.default > .wrapper > .inner > .full {
-                    margin-left: calc(-2rem);
-                    width: calc(100% + 4rem + 0.4725px);
-                }
-
-                #container01.default > .wrapper > .inner > .full:first-child {
-                    margin-top: -2.5rem !important;
-                }
-
-                #container01.default > .wrapper > .inner > .full:last-child {
-                    margin-bottom: -2.5rem !important;
-                }
-
-                #container01.columns > .wrapper > .inner > div > .full {
-                    margin-left: calc(-2rem);
-                    width: calc(100% + 4rem + 0.4725px);
-                }
-
-                #container01.columns > .wrapper > .inner > div:first-of-type > .full {
-                    margin-left: calc(-2rem);
-                    width: calc(100% + 4rem + 0.4725px);
-                }
-
-                #container01.columns > .wrapper > .inner > div:last-of-type > .full {
-                    margin-left: calc(-2rem);
-                    width: calc(100% + 4rem + 0.4725px);
-                }
-
-                #container01.columns > .wrapper > .inner > div > .full:first-child {
-                    margin-top: -3rem !important;
-                }
-
-                #container01.columns > .wrapper > .inner > div > .full:last-child {
-                    margin-bottom: -3rem !important;
-                }
-
-                #container01.columns > .wrapper > .inner > div:first-of-type > .full:first-child {
-                    margin-top: calc(-2.5rem) !important;
-                }
-
-                #container01.columns > .wrapper > .inner > div:last-of-type > .full:last-child {
-                    margin-bottom: calc(-2.5rem) !important;
-                }
-
-                #container01.columns > .wrapper > .inner > div:first-of-type, #container01.columns > .wrapper > .inner > div:first-of-type > .full:first-child {
-                    border-top-left-radius: inherit;
-                    border-top-right-radius: inherit;
-                }
-
-                #container01.columns > .wrapper > .inner > div:last-of-type, #container01.columns > .wrapper > .inner > div:last-of-type > .full:last-child {
-                    border-bottom-left-radius: inherit;
-                    border-bottom-right-radius: inherit;
-                }
-
-                #container01.columns > .wrapper > .inner > div:first-of-type, #container01.columns > .wrapper > .inner > div:first-of-type > .full:last-child {
-                    border-bottom-left-radius: 0 !important;
-                }
-
-                #container01.columns > .wrapper > .inner > div:last-of-type, #container01.columns > .wrapper > .inner > div:last-of-type > .full:first-child {
-                    border-top-right-radius: 0 !important;
-                }
-
-                #container01.columns > .wrapper > .inner > .full > .full:first-child:last-child {
-                    height: auto;
-                }
-
-                #container01.columns > .wrapper > .inner > .full > .full:first-child:last-child > * {
-                    position: relative;
-                    width: 100%;
-                    height: auto;
-                }
-
-                #container01.columns > .wrapper > .inner > .full > .full:first-child:last-child > * > * {
-                    height: auto;
-                }
-
-                #container01.columns > .wrapper > .inner > .full > .full:first-child:last-child > * > iframe {
-                    height: 100%;
-                }
-
-                #container03 > .wrapper > .inner {
-                    padding: 2rem 2rem;
-                }
-
-                #container03 > .wrapper {
-                    max-width: 100%;
-                }
-
-                #container03.default > .wrapper > .inner > * {
-                    margin-top: 1rem;
-                    margin-bottom: 1rem;
-                }
-
-                #container03.columns > .wrapper > .inner {
-                    -moz-flex-direction: column !important;
-                    -webkit-flex-direction: column !important;
-                    -ms-flex-direction: column !important;
-                    flex-direction: column !important;
-                    -moz-flex-wrap: nowrap !important;
-                    -webkit-flex-wrap: nowrap !important;
-                    -ms-flex-wrap: nowrap !important;
-                    flex-wrap: nowrap !important;
-                }
-
-                #container03.columns > .wrapper > .inner > span {
-                    display: none;
-                }
-
-                #container03.columns > .wrapper > .inner > * > * {
-                    margin-top: 1rem;
-                    margin-bottom: 1rem;
-                }
-
-                #container03.columns > .wrapper > .inner > * {
-                    padding: 3rem 0 !important;
-                }
-
-                #container03.columns > .wrapper > .inner > *:first-child {
-                    margin-left: 0 !important;
-                    padding-top: 0 !important;
-                }
-
-                #container03.columns > .wrapper > .inner > *:last-child {
-                    padding-bottom: 0 !important;
-                }
-
-                #container03.columns > .wrapper > .inner > div.after-spacer {
-                    padding-top: 0 !important;
-                }
-
-                #container03.columns > .wrapper > .inner > div.before-spacer {
-                    padding-bottom: 0 !important;
-                }
-
-                #container03.default > .wrapper > .inner > .full {
-                    margin-left: calc(-2rem);
-                    width: calc(100% + 4rem + 0.4725px);
-                }
-
-                #container03.default > .wrapper > .inner > .full:first-child {
-                    margin-top: -2rem !important;
-                }
-
-                #container03.default > .wrapper > .inner > .full:last-child {
-                    margin-bottom: -2rem !important;
-                }
-
-                #container03.columns > .wrapper > .inner > div > .full {
-                    margin-left: calc(-2rem);
-                    width: calc(100% + 4rem + 0.4725px);
-                }
-
-                #container03.columns > .wrapper > .inner > div:first-of-type > .full {
-                    margin-left: calc(-2rem);
-                    width: calc(100% + 4rem + 0.4725px);
-                }
-
-                #container03.columns > .wrapper > .inner > div:last-of-type > .full {
-                    margin-left: calc(-2rem);
-                    width: calc(100% + 4rem + 0.4725px);
-                }
-
-                #container03.columns > .wrapper > .inner > div > .full:first-child {
-                    margin-top: -3rem !important;
-                }
-
-                #container03.columns > .wrapper > .inner > div > .full:last-child {
-                    margin-bottom: -3rem !important;
-                }
-
-                #container03.columns > .wrapper > .inner > div:first-of-type > .full:first-child {
-                    margin-top: calc(-2rem) !important;
-                }
-
-                #container03.columns > .wrapper > .inner > div:last-of-type > .full:last-child {
-                    margin-bottom: calc(-2rem) !important;
-                }
-
-                #container03.columns > .wrapper > .inner > div:first-of-type, #container03.columns > .wrapper > .inner > div:first-of-type > .full:first-child {
-                    border-top-left-radius: inherit;
-                    border-top-right-radius: inherit;
-                }
-
-                #container03.columns > .wrapper > .inner > div:last-of-type, #container03.columns > .wrapper > .inner > div:last-of-type > .full:last-child {
-                    border-bottom-left-radius: inherit;
-                    border-bottom-right-radius: inherit;
-                }
-
-                #container03.columns > .wrapper > .inner > div:first-of-type, #container03.columns > .wrapper > .inner > div:first-of-type > .full:last-child {
-                    border-bottom-left-radius: 0 !important;
-                }
-
-                #container03.columns > .wrapper > .inner > div:last-of-type, #container03.columns > .wrapper > .inner > div:last-of-type > .full:first-child {
-                    border-top-right-radius: 0 !important;
-                }
-
-                #container03.columns > .wrapper > .inner > .full > .full:first-child:last-child {
-                    height: auto;
-                }
-
-                #container03.columns > .wrapper > .inner > .full > .full:first-child:last-child > * {
-                    position: relative;
-                    width: 100%;
-                    height: auto;
-                }
-
-                #container03.columns > .wrapper > .inner > .full > .full:first-child:last-child > * > * {
-                    height: auto;
-                }
-
-                #container03.columns > .wrapper > .inner > .full > .full:first-child:last-child > * > iframe {
-                    height: 100%;
-                }
-
-                #container02 > .wrapper > .inner {
-                    padding: 2rem 2rem;
-                }
-
-                #container02 > .wrapper {
-                    max-width: 100%;
-                }
-
-                #container02.default > .wrapper > .inner > * {
-                    margin-top: 1rem;
-                    margin-bottom: 1rem;
-                }
-
-                #container02.columns > .wrapper > .inner {
-                    -moz-flex-direction: column !important;
-                    -webkit-flex-direction: column !important;
-                    -ms-flex-direction: column !important;
-                    flex-direction: column !important;
-                    -moz-flex-wrap: nowrap !important;
-                    -webkit-flex-wrap: nowrap !important;
-                    -ms-flex-wrap: nowrap !important;
-                    flex-wrap: nowrap !important;
-                }
-
-                #container02.columns > .wrapper > .inner > span {
-                    display: none;
-                }
-
-                #container02.columns > .wrapper > .inner > * > * {
-                    margin-top: 1rem;
-                    margin-bottom: 1rem;
-                }
-
-                #container02.columns > .wrapper > .inner > * {
-                    padding: 3rem 0 !important;
-                }
-
-                #container02.columns > .wrapper > .inner > *:first-child {
-                    margin-left: 0 !important;
-                    padding-top: 0 !important;
-                }
-
-                #container02.columns > .wrapper > .inner > *:last-child {
-                    padding-bottom: 0 !important;
-                }
-
-                #container02.columns > .wrapper > .inner > div.after-spacer {
-                    padding-top: 0 !important;
-                }
-
-                #container02.columns > .wrapper > .inner > div.before-spacer {
-                    padding-bottom: 0 !important;
-                }
-
-                #container02.default > .wrapper > .inner > .full {
-                    margin-left: calc(-2rem);
-                    width: calc(100% + 4rem + 0.4725px);
-                }
-
-                #container02.default > .wrapper > .inner > .full:first-child {
-                    margin-top: -2rem !important;
-                }
-
-                #container02.default > .wrapper > .inner > .full:last-child {
-                    margin-bottom: -2rem !important;
-                }
-
-                #container02.columns > .wrapper > .inner > div > .full {
-                    margin-left: calc(-2rem);
-                    width: calc(100% + 4rem + 0.4725px);
-                }
-
-                #container02.columns > .wrapper > .inner > div:first-of-type > .full {
-                    margin-left: calc(-2rem);
-                    width: calc(100% + 4rem + 0.4725px);
-                }
-
-                #container02.columns > .wrapper > .inner > div:last-of-type > .full {
-                    margin-left: calc(-2rem);
-                    width: calc(100% + 4rem + 0.4725px);
-                }
-
-                #container02.columns > .wrapper > .inner > div > .full:first-child {
-                    margin-top: -3rem !important;
-                }
-
-                #container02.columns > .wrapper > .inner > div > .full:last-child {
-                    margin-bottom: -3rem !important;
-                }
-
-                #container02.columns > .wrapper > .inner > div:first-of-type > .full:first-child {
-                    margin-top: calc(-2rem) !important;
-                }
-
-                #container02.columns > .wrapper > .inner > div:last-of-type > .full:last-child {
-                    margin-bottom: calc(-2rem) !important;
-                }
-
-                #container02.columns > .wrapper > .inner > div:first-of-type, #container02.columns > .wrapper > .inner > div:first-of-type > .full:first-child {
-                    border-top-left-radius: inherit;
-                    border-top-right-radius: inherit;
-                }
-
-                #container02.columns > .wrapper > .inner > div:last-of-type, #container02.columns > .wrapper > .inner > div:last-of-type > .full:last-child {
-                    border-bottom-left-radius: inherit;
-                    border-bottom-right-radius: inherit;
-                }
-
-                #container02.columns > .wrapper > .inner > div:first-of-type, #container02.columns > .wrapper > .inner > div:first-of-type > .full:last-child {
-                    border-bottom-left-radius: 0 !important;
-                }
-
-                #container02.columns > .wrapper > .inner > div:last-of-type, #container02.columns > .wrapper > .inner > div:last-of-type > .full:first-child {
-                    border-top-right-radius: 0 !important;
-                }
-
-                #container02.columns > .wrapper > .inner > .full > .full:first-child:last-child {
-                    height: auto;
-                }
-
-                #container02.columns > .wrapper > .inner > .full > .full:first-child:last-child > * {
-                    position: relative;
-                    width: 100%;
-                    height: auto;
-                }
-
-                #container02.columns > .wrapper > .inner > .full > .full:first-child:last-child > * > * {
-                    height: auto;
-                }
-
-                #container02.columns > .wrapper > .inner > .full > .full:first-child:last-child > * > iframe {
-                    height: 100%;
-                }
-
-                #image01 img {
-                    width: 5.75rem;
-                }
-
-                #text03 {
-                    letter-spacing: -0.04375rem;
-                    width: 100%;
-                    font-size: 2em;
-                    line-height: 1.25;
+                .image.style1 .frame {
+                    width: 8rem;
                 }
 
                 #text01 {
-                    letter-spacing: -0.021875rem;
+                    letter-spacing: 0rem;
+                    width: 100%;
+                    font-size: 2.25em;
+                    line-height: 1.375;
+                }
+
+                h1.style3, h2.style3, h3.style3, p.style3 {
+                    letter-spacing: 0rem;
                     width: 100%;
                     font-size: 1em;
                     line-height: 1.75;
                 }
 
-                #credits {
-                    letter-spacing: -0.021875rem;
+                h1.style1, h2.style1, h3.style1, p.style1 {
+                    letter-spacing: 0rem;
                     width: 100%;
-                    font-size: 0.8em;
-                    line-height: 1.5;
+                    font-size: 1.5em;
+                    line-height: 1.25;
                 }
 
-                #buttons01 li a {
-                    font-size: 0.75em;
-                    letter-spacing: 0.2rem;
-                    padding-left: calc(0.2rem + 1.5rem);
+                h1.style2, h2.style2, h3.style2, p.style2 {
+                    letter-spacing: 0rem;
+                    width: 100%;
+                    font-size: 1em;
+                    line-height: 1.75;
                 }
 
-                #buttons01 li a svg {
-                    width: 2.34375em;
+                .buttons.style1 li a {
+                    font-size: 1.125em;
+                    letter-spacing: 0rem;
                 }
 
-                #buttons02 li a {
-                    font-size: 0.75em;
-                    letter-spacing: 0.2rem;
-                    padding-left: calc(0.2rem + 1.5rem);
+                .buttons.style1 li a svg {
+                    width: 1.75em;
                 }
 
-                #buttons02 li a svg {
-                    width: 2.34375em;
+                .container.style2 > .wrapper > .inner {
+                    padding: 2rem 2rem;
+                }
+
+                .container.style2 > .wrapper {
+                    max-width: 100%;
+                }
+
+                .container.style2.default > .wrapper > .inner > * {
+                    margin-top: 1.5rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                .container.style2.columns > .wrapper > .inner {
+                    flex-direction: column !important;
+                    flex-wrap: nowrap !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > span {
+                    display: none;
+                }
+
+                .container.style2.columns > .wrapper > .inner > * > * {
+                    margin-top: 1.5rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                .container.style2.columns > .wrapper > .inner > * {
+                    padding: 1.5rem 0 !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > *:first-child {
+                    margin-left: 0 !important;
+                    padding-top: 0 !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > *:last-child {
+                    padding-bottom: 0 !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > div.after-spacer {
+                    padding-top: 0 !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > div.before-spacer {
+                    padding-bottom: 0 !important;
+                }
+
+                .container.style2.default > .wrapper > .inner > .full {
+                    margin-left: calc(-2rem);
+                    width: calc(100% + 4rem + 0.4725px);
+                }
+
+                .container.style2.default > .wrapper > .inner > .full:first-child {
+                    margin-top: -2rem !important;
+                }
+
+                .container.style2.default > .wrapper > .inner > .full:last-child {
+                    margin-bottom: -2rem !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > div > .full {
+                    margin-left: calc(-2rem);
+                    width: calc(100% + 4rem + 0.4725px);
+                }
+
+                .container.style2.columns > .wrapper > .inner > div:first-of-type > .full {
+                    margin-left: calc(-2rem);
+                    width: calc(100% + 4rem + 0.4725px);
+                }
+
+                .container.style2.columns > .wrapper > .inner > div:last-of-type > .full {
+                    margin-left: calc(-2rem);
+                    width: calc(100% + 4rem + 0.4725px);
+                }
+
+                .container.style2.columns > .wrapper > .inner > div > .full:first-child {
+                    margin-top: -1.5rem !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > div > .full:last-child {
+                    margin-bottom: -1.5rem !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > div:first-of-type > .full:first-child {
+                    margin-top: calc(-2rem) !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > div:last-of-type > .full:last-child {
+                    margin-bottom: calc(-2rem) !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > div:first-of-type, .container.style2.columns > .wrapper > .inner > div:first-of-type > .full:first-child {
+                    border-top-left-radius: inherit;
+                    border-top-right-radius: inherit;
+                }
+
+                .container.style2.columns > .wrapper > .inner > div:last-of-type, .container.style2.columns > .wrapper > .inner > div:last-of-type > .full:last-child {
+                    border-bottom-left-radius: inherit;
+                    border-bottom-right-radius: inherit;
+                }
+
+                .container.style2.columns > .wrapper > .inner > div:first-of-type, .container.style2.columns > .wrapper > .inner > div:first-of-type > .full:last-child {
+                    border-bottom-left-radius: 0 !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > div:last-of-type, .container.style2.columns > .wrapper > .inner > div:last-of-type > .full:first-child {
+                    border-top-right-radius: 0 !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > .full > .full:first-child:last-child {
+                    height: auto;
+                }
+
+                .container.style2.columns > .wrapper > .inner > .full > .full:first-child:last-child > * {
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+                }
+
+                .container.style2.columns > .wrapper > .inner > .full > .full:first-child:last-child > * > * {
+                    height: auto;
+                }
+
+                .container.style2.columns > .wrapper > .inner > .full > .full:first-child:last-child > * > iframe {
+                    height: 100%;
+                }
+
+                .container.style1 > .wrapper > .inner {
+                    text-align: center !important;
+                    padding: 2rem 1.75rem;
+                }
+
+                .container.style1 > .wrapper > .inner h1, .container.style1 > .wrapper > .inner h2, .container.style1 > .wrapper > .inner h3, .container.style1 > .wrapper > .inner p {
+                    text-align: inherit !important;
+                }
+
+                .container.style1 > .wrapper {
+                    max-width: 100%;
+                }
+
+                .container.style1.default > .wrapper > .inner > * {
+                    margin-top: 0.25rem;
+                    margin-bottom: 0.25rem;
+                }
+
+                .container.style1.columns > .wrapper > .inner > * > * {
+                    margin-top: 0.25rem;
+                    margin-bottom: 0.25rem;
+                }
+
+                .container.style1.columns > .wrapper > .inner > * {
+                    padding: 0 0 0 1rem;
+                }
+
+                .container.style1.columns > .wrapper > .inner > *:first-child {
+                    margin-left: -1rem;
+                }
+
+                .container.style1.default > .wrapper > .inner > .full {
+                    margin-left: calc(-1.75rem);
+                    width: calc(100% + 3.5rem + 0.4725px);
+                }
+
+                .container.style1.default > .wrapper > .inner > .full:first-child {
+                    margin-top: -2rem !important;
+                }
+
+                .container.style1.default > .wrapper > .inner > .full:last-child {
+                    margin-bottom: -2rem !important;
+                }
+
+                .container.style1.columns > .wrapper > .inner > div > .full {
+                    margin-left: calc(-0.5rem);
+                    width: calc(100% + 1rem + 0.4725px);
+                }
+
+                .container.style1.columns > .wrapper > .inner > div:first-child > .full {
+                    margin-left: calc(-1.75rem);
+                    width: calc(100% + 2.25rem + 0.4725px);
+                }
+
+                .container.style1.columns > .wrapper > .inner > div:last-child > .full {
+                    width: calc(100% + 2.25rem + 0.4725px);
+                }
+
+                .container.style1.columns > .wrapper > .inner > div > .full:first-child {
+                    margin-top: calc(-2rem) !important;
+                }
+
+                .container.style1.columns > .wrapper > .inner > div > .full:last-child {
+                    margin-bottom: calc(-2rem) !important;
+                }
+
+                .container.style1.columns > .wrapper > .inner > .full > .full:first-child:last-child {
+                    height: calc(100% + 4rem);
+                }
+
+                #container02 > .wrapper > .inner > :nth-child(1) {
+                    width: calc(33.33333% + 0.33rem);
+                }
+
+                #container02 > .wrapper > .inner > :nth-child(2) {
+                    width: calc(33.33333% + 0.33rem);
+                }
+
+                #container02 > .wrapper > .inner > :nth-child(3) {
+                    width: calc(33.33333% + 0.33rem);
+                }
+
+                .icons.style1 {
+                    font-size: 1.75em;
+                    width: calc(100% + 1.625rem);
+                    margin-left: -0.8125rem;
+                }
+
+                .icons.style1 li {
+                    margin: 0.8125rem;
                 }
             }
 
             @media (max-width: 480px) {
+                #wrapper {
+                    padding: 0rem 0rem 0rem 0rem;
+                }
+
                 #main > .inner > * {
                     margin-top: 0rem;
                     margin-bottom: 0rem;
                 }
 
-                #container01.default > .wrapper > .inner > * {
-                    margin-top: 0.875rem;
-                    margin-bottom: 0.875rem;
-                }
-
-                #container01.columns > .wrapper > .inner > * > * {
-                    margin-top: 0.875rem;
-                    margin-bottom: 0.875rem;
-                }
-
-                #container03.default > .wrapper > .inner > * {
-                    margin-top: 0.875rem;
-                    margin-bottom: 0.875rem;
-                }
-
-                #container03.columns > .wrapper > .inner > * > * {
-                    margin-top: 0.875rem;
-                    margin-bottom: 0.875rem;
-                }
-
-                #container02.default > .wrapper > .inner > * {
-                    margin-top: 0.875rem;
-                    margin-bottom: 0.875rem;
-                }
-
-                #container02.columns > .wrapper > .inner > * > * {
-                    margin-top: 0.875rem;
-                    margin-bottom: 0.875rem;
-                }
-
-                #buttons01 {
-                    margin-left: 0;
-                    width: 100%;
-                    padding: 0.3125rem 0;
-                }
-
-                #buttons01 li {
-                    max-width: 100%;
-                    display: block;
-                    margin: 0.625rem 0;
-                }
-
-                #buttons01 li:first-child {
-                    margin-top: 0;
-                }
-
-                #buttons01 li:last-child {
-                    margin-bottom: 0;
-                }
-
-                #buttons01 li a {
-                    display: inline-flex;
+                .buttons.style1 li a {
                     width: 100%;
                     max-width: 32rem;
                 }
 
-                #buttons02 {
-                    margin-left: 0;
-                    width: 100%;
-                    padding: 0.3125rem 0;
+                .container.style2.default > .wrapper > .inner > * {
+                    margin-top: 1.3125rem;
+                    margin-bottom: 1.3125rem;
                 }
 
-                #buttons02 li {
-                    max-width: 100%;
-                    display: block;
-                    margin: 0.625rem 0;
+                .container.style2.columns > .wrapper > .inner > * > * {
+                    margin-top: 1.3125rem;
+                    margin-bottom: 1.3125rem;
                 }
 
-                #buttons02 li:first-child {
-                    margin-top: 0;
+                .container.style1.default > .wrapper > .inner > * {
+                    margin-top: 0.21875rem;
+                    margin-bottom: 0.21875rem;
                 }
 
-                #buttons02 li:last-child {
-                    margin-bottom: 0;
-                }
-
-                #buttons02 li a {
-                    display: inline-flex;
-                    width: 100%;
-                    max-width: 32rem;
+                .container.style1.columns > .wrapper > .inner > * > * {
+                    margin-top: 0.21875rem;
+                    margin-bottom: 0.21875rem;
                 }
             }
 
             @media (max-width: 360px) {
+                #wrapper {
+                    padding: 0rem 0rem 0rem 0rem;
+                }
+
                 #main > .inner {
-                    padding: 0rem 0rem;
+                    padding: 1.5rem 1.5rem;
                 }
 
                 #main > .inner > * {
@@ -1770,229 +1430,165 @@
                 }
 
                 #main > .inner > .full {
-                    margin-left: calc(-0rem);
-                    width: calc(100% + 0rem + 0.4725px);
-                    max-width: calc(100% + 0rem + 0.4725px);
+                    margin-left: calc(-1.5rem);
+                    width: calc(100% + 3rem + 0.4725px);
+                    max-width: calc(100% + 3rem + 0.4725px);
                 }
 
                 #main > .inner > .full:first-child {
-                    margin-top: -0rem !important;
+                    margin-top: -1.5rem !important;
                 }
 
                 #main > .inner > .full:last-child {
-                    margin-bottom: -0rem !important;
+                    margin-bottom: -1.5rem !important;
                 }
 
                 #main > .inner > .full.screen {
                     margin-left: -50vw;
                 }
 
-                #container01 > .wrapper > .inner {
-                    padding: 1.875rem 1.5rem;
-                }
-
-                #container01.default > .wrapper > .inner > * {
-                    margin-top: 0.75rem;
-                    margin-bottom: 0.75rem;
-                }
-
-                #container01.columns > .wrapper > .inner > * > * {
-                    margin-top: 0.75rem;
-                    margin-bottom: 0.75rem;
-                }
-
-                #container01.default > .wrapper > .inner > .full {
-                    margin-left: calc(-1.5rem);
-                    width: calc(100% + 3rem + 0.4725px);
-                }
-
-                #container01.default > .wrapper > .inner > .full:first-child {
-                    margin-top: -1.875rem !important;
-                }
-
-                #container01.default > .wrapper > .inner > .full:last-child {
-                    margin-bottom: -1.875rem !important;
-                }
-
-                #container01.columns > .wrapper > .inner > div > .full {
-                    margin-left: calc(-1.5rem);
-                    width: calc(100% + 3rem + 0.4725px);
-                }
-
-                #container01.columns > .wrapper > .inner > div:first-of-type > .full {
-                    margin-left: calc(-1.5rem);
-                    width: calc(100% + 3rem + 0.4725px);
-                }
-
-                #container01.columns > .wrapper > .inner > div:last-of-type > .full {
-                    margin-left: calc(-1.5rem);
-                    width: calc(100% + 3rem + 0.4725px);
-                }
-
-                #container01.columns > .wrapper > .inner > div > .full:first-child {
-                    margin-top: -3rem !important;
-                }
-
-                #container01.columns > .wrapper > .inner > div > .full:last-child {
-                    margin-bottom: -3rem !important;
-                }
-
-                #container01.columns > .wrapper > .inner > div:first-of-type > .full:first-child {
-                    margin-top: calc(-1.875rem) !important;
-                }
-
-                #container01.columns > .wrapper > .inner > div:last-of-type > .full:last-child {
-                    margin-bottom: calc(-1.875rem) !important;
-                }
-
-                #container03 > .wrapper > .inner {
-                    padding: 1.5rem 1.5rem;
-                }
-
-                #container03.default > .wrapper > .inner > * {
-                    margin-top: 0.75rem;
-                    margin-bottom: 0.75rem;
-                }
-
-                #container03.columns > .wrapper > .inner > * > * {
-                    margin-top: 0.75rem;
-                    margin-bottom: 0.75rem;
-                }
-
-                #container03.default > .wrapper > .inner > .full {
-                    margin-left: calc(-1.5rem);
-                    width: calc(100% + 3rem + 0.4725px);
-                }
-
-                #container03.default > .wrapper > .inner > .full:first-child {
-                    margin-top: -1.5rem !important;
-                }
-
-                #container03.default > .wrapper > .inner > .full:last-child {
-                    margin-bottom: -1.5rem !important;
-                }
-
-                #container03.columns > .wrapper > .inner > div > .full {
-                    margin-left: calc(-1.5rem);
-                    width: calc(100% + 3rem + 0.4725px);
-                }
-
-                #container03.columns > .wrapper > .inner > div:first-of-type > .full {
-                    margin-left: calc(-1.5rem);
-                    width: calc(100% + 3rem + 0.4725px);
-                }
-
-                #container03.columns > .wrapper > .inner > div:last-of-type > .full {
-                    margin-left: calc(-1.5rem);
-                    width: calc(100% + 3rem + 0.4725px);
-                }
-
-                #container03.columns > .wrapper > .inner > div > .full:first-child {
-                    margin-top: -3rem !important;
-                }
-
-                #container03.columns > .wrapper > .inner > div > .full:last-child {
-                    margin-bottom: -3rem !important;
-                }
-
-                #container03.columns > .wrapper > .inner > div:first-of-type > .full:first-child {
-                    margin-top: calc(-1.5rem) !important;
-                }
-
-                #container03.columns > .wrapper > .inner > div:last-of-type > .full:last-child {
-                    margin-bottom: calc(-1.5rem) !important;
-                }
-
-                #container02 > .wrapper > .inner {
-                    padding: 1.5rem 1.5rem;
-                }
-
-                #container02.default > .wrapper > .inner > * {
-                    margin-top: 0.75rem;
-                    margin-bottom: 0.75rem;
-                }
-
-                #container02.columns > .wrapper > .inner > * > * {
-                    margin-top: 0.75rem;
-                    margin-bottom: 0.75rem;
-                }
-
-                #container02.default > .wrapper > .inner > .full {
-                    margin-left: calc(-1.5rem);
-                    width: calc(100% + 3rem + 0.4725px);
-                }
-
-                #container02.default > .wrapper > .inner > .full:first-child {
-                    margin-top: -1.5rem !important;
-                }
-
-                #container02.default > .wrapper > .inner > .full:last-child {
-                    margin-bottom: -1.5rem !important;
-                }
-
-                #container02.columns > .wrapper > .inner > div > .full {
-                    margin-left: calc(-1.5rem);
-                    width: calc(100% + 3rem + 0.4725px);
-                }
-
-                #container02.columns > .wrapper > .inner > div:first-of-type > .full {
-                    margin-left: calc(-1.5rem);
-                    width: calc(100% + 3rem + 0.4725px);
-                }
-
-                #container02.columns > .wrapper > .inner > div:last-of-type > .full {
-                    margin-left: calc(-1.5rem);
-                    width: calc(100% + 3rem + 0.4725px);
-                }
-
-                #container02.columns > .wrapper > .inner > div > .full:first-child {
-                    margin-top: -3rem !important;
-                }
-
-                #container02.columns > .wrapper > .inner > div > .full:last-child {
-                    margin-bottom: -3rem !important;
-                }
-
-                #container02.columns > .wrapper > .inner > div:first-of-type > .full:first-child {
-                    margin-top: calc(-1.5rem) !important;
-                }
-
-                #container02.columns > .wrapper > .inner > div:last-of-type > .full:last-child {
-                    margin-bottom: calc(-1.5rem) !important;
-                }
-
-                #text03 {
-                    font-size: 1.5em;
-                }
-
                 #text01 {
+                    font-size: 2.25em;
+                }
+
+                h1.style3, h2.style3, h3.style3, p.style3 {
                     font-size: 1em;
                 }
 
-                #credits {
-                    font-size: 0.8em;
+                h1.style1, h2.style1, h3.style1, p.style1 {
+                    font-size: 1.5em;
                 }
 
-                #buttons01 {
-                    width: 100%;
-                    margin-left: 0;
-                    padding: 0.234375rem 0;
+                h1.style2, h2.style2, h3.style2, p.style2 {
+                    font-size: 1em;
                 }
 
-                #buttons01 li {
-                    max-width: 100%;
-                    margin: 0.46875rem 0;
+                .buttons.style1 {
+                    padding: 0.46875rem 0;
                 }
 
-                #buttons02 {
-                    width: 100%;
-                    margin-left: 0;
-                    padding: 0.234375rem 0;
+                .buttons.style1 li {
+                    margin: 0.9375rem 0;
                 }
 
-                #buttons02 li {
-                    max-width: 100%;
-                    margin: 0.46875rem 0;
+                .container.style2 > .wrapper > .inner {
+                    padding: 1.5rem 1.5rem;
+                }
+
+                .container.style2.default > .wrapper > .inner > * {
+                    margin-top: 1.125rem;
+                    margin-bottom: 1.125rem;
+                }
+
+                .container.style2.columns > .wrapper > .inner > * > * {
+                    margin-top: 1.125rem;
+                    margin-bottom: 1.125rem;
+                }
+
+                .container.style2.default > .wrapper > .inner > .full {
+                    margin-left: calc(-1.5rem);
+                    width: calc(100% + 3rem + 0.4725px);
+                }
+
+                .container.style2.default > .wrapper > .inner > .full:first-child {
+                    margin-top: -1.5rem !important;
+                }
+
+                .container.style2.default > .wrapper > .inner > .full:last-child {
+                    margin-bottom: -1.5rem !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > div > .full {
+                    margin-left: calc(-1.5rem);
+                    width: calc(100% + 3rem + 0.4725px);
+                }
+
+                .container.style2.columns > .wrapper > .inner > div:first-of-type > .full {
+                    margin-left: calc(-1.5rem);
+                    width: calc(100% + 3rem + 0.4725px);
+                }
+
+                .container.style2.columns > .wrapper > .inner > div:last-of-type > .full {
+                    margin-left: calc(-1.5rem);
+                    width: calc(100% + 3rem + 0.4725px);
+                }
+
+                .container.style2.columns > .wrapper > .inner > div > .full:first-child {
+                    margin-top: -1.5rem !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > div > .full:last-child {
+                    margin-bottom: -1.5rem !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > div:first-of-type > .full:first-child {
+                    margin-top: calc(-1.5rem) !important;
+                }
+
+                .container.style2.columns > .wrapper > .inner > div:last-of-type > .full:last-child {
+                    margin-bottom: calc(-1.5rem) !important;
+                }
+
+                .container.style1 > .wrapper > .inner {
+                    padding: 1.5rem 1.3125rem;
+                }
+
+                .container.style1.default > .wrapper > .inner > * {
+                    margin-top: 0.1875rem;
+                    margin-bottom: 0.1875rem;
+                }
+
+                .container.style1.columns > .wrapper > .inner > * > * {
+                    margin-top: 0.1875rem;
+                    margin-bottom: 0.1875rem;
+                }
+
+                .container.style1.default > .wrapper > .inner > .full {
+                    margin-left: calc(-1.3125rem);
+                    width: calc(100% + 2.625rem + 0.4725px);
+                }
+
+                .container.style1.default > .wrapper > .inner > .full:first-child {
+                    margin-top: -1.5rem !important;
+                }
+
+                .container.style1.default > .wrapper > .inner > .full:last-child {
+                    margin-bottom: -1.5rem !important;
+                }
+
+                .container.style1.columns > .wrapper > .inner > div > .full {
+                    margin-left: calc(-0.5rem);
+                    width: calc(100% + 1rem + 0.4725px);
+                }
+
+                .container.style1.columns > .wrapper > .inner > div:first-child > .full {
+                    margin-left: calc(-1.3125rem);
+                    width: calc(100% + 1.8125rem + 0.4725px);
+                }
+
+                .container.style1.columns > .wrapper > .inner > div:last-child > .full {
+                    width: calc(100% + 1.8125rem + 0.4725px);
+                }
+
+                .container.style1.columns > .wrapper > .inner > div > .full:first-child {
+                    margin-top: calc(-1.5rem) !important;
+                }
+
+                .container.style1.columns > .wrapper > .inner > div > .full:last-child {
+                    margin-bottom: calc(-1.5rem) !important;
+                }
+
+                .container.style1.columns > .wrapper > .inner > .full > .full:first-child:last-child {
+                    height: calc(100% + 3rem);
+                }
+
+                .icons.style1 {
+                    width: calc(100% + 1.21875rem);
+                    margin-left: -0.609375rem;
+                }
+
+                .icons.style1 li {
+                    margin: 0.609375rem;
                 }
             }
         </style>
@@ -2012,17 +1608,8 @@
 
                 #main {
                     opacity: 1.0 !important;
-                    -moz-transform: none !important;
-                    -webkit-transform: none !important;
-                    -ms-transform: none !important;
                     transform: none !important;
-                    -moz-transition: none !important;
-                    -webkit-transition: none !important;
-                    -ms-transition: none !important;
                     transition: none !important;
-                    -moz-filter: none !important;
-                    -webkit-filter: none !important;
-                    -ms-filter: none !important;
                     filter: none !important;
                 }
             </style>
@@ -2030,11 +1617,11 @@
     </head>
     <body class="is-loading">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" display="none" width="0" height="0">
-            <symbol id="icon-951" viewBox="0 0 40 40">
-                <path d="M24.5,13.6V5.8c0.2,0.2,0.4,0.3,0.6,0.5l6.8,6.8c0.2,0.2,0.3,0.4,0.5,0.6L24.5,13.6L24.5,13.6z M22.3,14.2 c0,0.4,0.2,0.8,0.5,1.1c0.3,0.3,0.7,0.5,1.1,0.5h9v17.5c0,0.4-0.2,0.8-0.5,1.1c-0.3,0.3-0.7,0.5-1.1,0.5H9.1c-0.4,0-0.8-0.2-1.1-0.5 c-0.3-0.3-0.5-0.7-0.5-1.1V6.7c0-0.4,0.2-0.8,0.5-1.1c0.3-0.3,0.7-0.5,1.1-0.5h13.3L22.3,14.2L22.3,14.2z"/>
-            </symbol>
             <symbol id="icon-907" viewBox="0 0 40 40">
                 <path d="M36,20.3c0,3.5-1,6.6-3.1,9.4c-2,2.8-4.7,4.7-7.9,5.8c-0.4,0.1-0.6,0-0.8-0.1c-0.2-0.2-0.3-0.4-0.3-0.6v-4.4 c0-1.3-0.4-2.3-1.1-3c0.8-0.1,1.5-0.2,2.1-0.4c0.6-0.2,1.3-0.4,2-0.8c0.7-0.4,1.2-0.8,1.7-1.4c0.5-0.5,0.8-1.3,1.1-2.2 s0.4-2,0.4-3.1c0-1.7-0.5-3.1-1.6-4.3c0.5-1.3,0.5-2.7-0.2-4.2c-0.4-0.1-1,0-1.7,0.2c-0.7,0.3-1.4,0.6-1.9,0.9L24,12.5 c-1.3-0.4-2.6-0.5-4-0.5s-2.7,0.2-4,0.5c-0.2-0.2-0.5-0.3-0.9-0.6c-0.4-0.2-0.9-0.5-1.7-0.8c-0.8-0.3-1.4-0.4-1.8-0.3 c-0.6,1.6-0.7,3-0.1,4.2c-1.1,1.2-1.6,2.6-1.6,4.3c0,1.2,0.1,2.2,0.4,3.1s0.6,1.6,1.1,2.2s1,1,1.7,1.4c0.7,0.4,1.3,0.6,2,0.8 c0.6,0.2,1.3,0.3,2.1,0.4c-0.6,0.5-0.9,1.2-1,2.1c-0.3,0.1-0.6,0.2-0.9,0.3c-0.3,0.1-0.7,0.1-1.2,0.1c-0.5,0-0.9-0.1-1.4-0.4 c-0.5-0.3-0.8-0.7-1.2-1.3c-0.3-0.4-0.6-0.8-1-1.1c-0.4-0.3-0.8-0.4-1-0.5L9,26.5c-0.3,0-0.5,0-0.6,0.1c-0.1,0.1-0.1,0.1-0.1,0.2 c0,0.1,0.1,0.2,0.2,0.3c0.1,0.1,0.2,0.2,0.3,0.2l0.1,0.1c0.3,0.1,0.6,0.4,0.9,0.8s0.5,0.7,0.7,1.1l0.2,0.5c0.2,0.5,0.5,1,0.9,1.3 c0.4,0.3,0.9,0.5,1.4,0.6c0.5,0.1,1,0.1,1.4,0.1c0.5,0,0.9,0,1.2-0.1l0.5-0.1c0,0.5,0,1.1,0,1.9c0,0.7,0,1.1,0,1.1 c0,0.2-0.1,0.5-0.3,0.6c-0.2,0.2-0.5,0.2-0.8,0.1c-3.2-1.1-5.8-3-7.9-5.8S4,23.8,4,20.3c0-2.9,0.7-5.6,2.1-8S9.5,7.8,12,6.4 s5.1-2.1,8-2.1s5.6,0.7,8,2.1s4.4,3.4,5.8,5.8S36,17.4,36,20.3L36,20.3z"/>
+            </symbol>
+            <symbol id="icon-92f" viewBox="0 0 40 40">
+                <path d="M20,13.9v8.4h-2.8v-8.4H20z M27.7,13.9v8.4h-2.8v-8.4H27.7z M27.7,28.5l4.9-4.9V8.3h-23v20.2h6.3v4.2l4.2-4.2 C20,28.5,27.7,28.5,27.7,28.5z M35.4,5.5v19.6l-8.4,8.4h-6.3l-4.2,4.2h-4.2v-4.2H4.6V11.1l2.1-5.6H35.4L35.4,5.5z"/>
             </symbol>
             <symbol id="icon-905" viewBox="0 0 40 40">
                 <path d="M36.3,10.2c-1,1.3-2.1,2.5-3.4,3.5c0,0.2,0,0.4,0,1c0,1.7-0.2,3.6-0.9,5.3c-0.6,1.7-1.2,3.5-2.4,5.1 c-1.1,1.5-2.3,3.1-3.7,4.3c-1.4,1.2-3.3,2.3-5.3,3c-2.1,0.8-4.2,1.2-6.6,1.2c-3.6,0-7-1-10.2-3c0.4,0,1.1,0.1,1.5,0.1 c3.1,0,5.9-1,8.2-2.9c-1.4,0-2.7-0.4-3.8-1.3c-1.2-1-1.9-2-2.2-3.3c0.4,0.1,1,0.1,1.2,0.1c0.6,0,1.2-0.1,1.7-0.2 c-1.4-0.3-2.7-1.1-3.7-2.3s-1.4-2.6-1.4-4.2v-0.1c1,0.6,2,0.9,3,0.9c-1-0.6-1.5-1.3-2.2-2.4c-0.6-1-0.9-2.1-0.9-3.3s0.3-2.3,1-3.4 c1.5,2.1,3.6,3.6,6,4.9s4.9,2,7.6,2.1c-0.1-0.6-0.1-1.1-0.1-1.4c0-1.8,0.8-3.5,2-4.7c1.2-1.2,2.9-2,4.7-2c2,0,3.6,0.8,4.8,2.1 c1.4-0.3,2.9-0.9,4.2-1.5c-0.4,1.5-1.4,2.7-2.9,3.6C33.8,11.2,35.1,10.9,36.3,10.2L36.3,10.2z"/>
@@ -2046,57 +1633,22 @@
         <div id="wrapper">
             <div id="main">
                 <div class="inner">
-                    <div id="container01" class="container default full">
+                    <div id="container03" class="style2 container default full">
                         <div class="wrapper">
                             <div class="inner">
-                                <div id="image01" class="image">
-                                    <img src="assets/images/image01.jpg?v=d7bf382d" alt="" draggable="false"/>
+                                <div id="image01" class="style1 image">
+                                    <span class="frame">
+                                        <img src="assets/images/image01.jpg?v=9899f83f" alt="logo"/>
+                                    </span>
                                 </div>
-                                <h1 id="text03">emopedia</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="container03" class="container default full">
-                        <div class="wrapper">
-                            <div class="inner">
-                                <ul id="buttons01" class="buttons">
-                                    <li>
-                                        <a href="https://twitter.com/emopediamc" class="button n01">
-                                            <svg>
-                                                <use xlink:href="#icon-905"></use>
-                                            </svg>
-                                            <span class="label">Twitter</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://youtube.com/c/emopedia" class="button n02">
-                                            <svg>
-                                                <use xlink:href="#icon-993"></use>
-                                            </svg>
-                                            <span class="label">YouTube</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://github.com/emopedia" class="button n03">
-                                            <svg>
-                                                <use xlink:href="#icon-907"></use>
-                                            </svg>
-                                            <span class="label">Github</span>
-                                        </a>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="container02" class="container default full">
-                        <div class="wrapper">
-                            <div class="inner">
-                                <p id="text01">
+                                <h1 id="text01">emopedia</h1>
+                                <p id="text07" class="style3">
                                     <span>
                                         <strong>ABOUT ME</strong>
                                     </span>
                                     <br/>
                                     <br/>
-                                    <span>Hello, I'm emopedia, a 14-year-old Non-Binary individual from New Zealand. I like coding Minecraft plugins, Discord bots, and websites. I'm currently learning Web and Java Development in the hopes to become a Web or Java Developer in the near future.</span>
+                                    <span>Hello, I &#39;m emopedia, a 14-year-old Non-Binary individual from New Zealand. I like coding Minecraft plugins, Discord bots, and websites. I &#39;m currently learning Web and Java Development in the hopes to become a Web or Java Developer in the near future.</span>
                                     <br/>
                                     <br/>
                                     <span>
@@ -2106,18 +1658,83 @@
                                     <br/>
                                     <span>I started coding as a hobby as I enjoyed making Discord bots. I enjoyed making Discord bots as it was a fun activity to do when I was bored (Which was all the time.)</span>
                                 </p>
-				<iframe frameborder="0" src="https://itch.io/embed/1199467?linkback=true&amp;bg_color=575467&amp;fg_color=ffffff&amp;link_color=ffffff&amp;border_color=737e84" width="208" height="167"><a href="https://emopedia.itch.io/ohno">Oh no! by emopedia</a></iframe>
+                                <ul id="buttons02" class="style1 buttons">
+                                    <li>
+                                        <a href="https://www.youtube.com/c/emopedia" class="button n01">
+                                            <svg>
+                                                <use xlink:href="#icon-993"></use>
+                                            </svg>
+                                            <span class="label">YouTube</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/emopedia" class="button n02">
+                                            <svg>
+                                                <use xlink:href="#icon-907"></use>
+                                            </svg>
+                                            <span class="label">GitHub</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
+                    </div>
+                    <div id="container02" class="style1 container columns full">
+                        <div class="wrapper">
+                            <div class="inner">
+                                <div>
+                                    <ul id="icons01" class="style1 icons">
+                                        <li>
+                                            <a class="n01" href="https://domain.ext/path">
+                                                <svg>
+                                                    <use xlink:href="#icon-993"></use>
+                                                </svg>
+                                                <span class="label">YouTube (alt)</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h2 id="text06" class="style1">129</h2>
+                                    <p id="text09" class="style2">Subscribers</p>
+                                </div>
+                                <div>
+                                    <ul id="icons02" class="style1 icons">
+                                        <li>
+                                            <a class="n01" href="https://domain.ext/path">
+                                                <svg>
+                                                    <use xlink:href="#icon-905"></use>
+                                                </svg>
+                                                <span class="label">Twitter</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h2 id="text10" class="style1">null</h2>
+                                    <p id="text14" class="style2">Followers</p>
+                                </div>
+                                <div>
+                                    <ul id="icons03" class="style1 icons">
+                                        <li>
+                                            <a class="n01" href="https://domain.ext/path">
+                                                <svg>
+                                                    <use xlink:href="#icon-92f"></use>
+                                                </svg>
+                                                <span class="label">Twitch</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h2 id="text15" class="style1">null</h2>
+                                    <p id="text16" class="style2">Followers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="credits" class="icc-credits">
+                        <span>
+                            <a href="https://carrd.co/build?ref=auto">Made with Carrd</a>
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
-		<style>
-			  #text01 strong {
-    			font-weight: bold;
-  			  }
-		</style>
         <script>
             (function() {
                 var on = addEventListener
@@ -2353,7 +1970,7 @@
                         $body.className = $body.className.replace(/\bis-loading\b/, 'is-playing');
                         setTimeout(function() {
                             $body.className = $body.className.replace(/\bis-playing\b/, 'is-ready');
-                        }, 750);
+                        }, 1000);
                     }, 100);
                 });
                 loadElements(document.body);
@@ -2362,6 +1979,22 @@
                 style.appendChild(document.createTextNode(''));
                 document.head.appendChild(style);
                 sheet = style.sheet;
+                if (client.mobile) {
+                    (function() {
+                        var f = function() {
+                            document.documentElement.style.setProperty('--viewport-height', window.innerHeight + 'px');
+                            document.documentElement.style.setProperty('--background-height', (window.innerHeight + 250) + 'px');
+                        };
+                        on('load', f);
+                        on('resize', f);
+                        on('orientationchange', function() {
+                            setTimeout(function() {
+                                (f)();
+                            }, 100);
+                        });
+                    }
+                    )();
+                }
                 if (client.os == 'android') {
                     (function() {
                         sheet.insertRule('body::after { }', 0);
@@ -2537,3 +2170,4 @@
         </script>
     </body>
 </html>
+
