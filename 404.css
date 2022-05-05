@@ -1,47 +1,84 @@
-@function multiple-shadow($length){
-    $value: 2px -1px 0 #000;
-    @for $i from 2 through $length{
-        $ho: $i * 2;
-        $vo: -#{$ho / 2};
-        $col: hsl(0deg, 0%, $i * 2%);
-        $value: $value, #{$ho}px #{$vo}px 0 $col
-    }
-    @return $value;
+body {
+  background-color: #2F3242;
+}
+svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -400px;
+}
+.message-box {
+  height: 200px;
+  width: 380px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: 50px;
+  color: #FFF;
+  font-family: Roboto;
+  font-weight: 300;
+}
+.message-box h1 {
+  font-size: 60px;
+  line-height: 46px;
+  margin-bottom: 40px;
+}
+.buttons-con .action-link-wrap {
+  margin-top: 40px;
+}
+.buttons-con .action-link-wrap a {
+  background: #68c950;
+  padding: 8px 25px;
+  border-radius: 4px;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 10px
+}
+.buttons-con .action-link-wrap a:hover {
+  background: #5A5C6C;
+  color: #fff;
 }
 
-body{
-    @include _flexbox($n, $rw, $n, $c)
+#Polygon-1 , #Polygon-2 , #Polygon-3 , #Polygon-4 , #Polygon-4, #Polygon-5 {
+  animation: float 1s infinite ease-in-out alternate;
+}
+#Polygon-2 {
+  animation-delay: .2s; 
+}
+#Polygon-3 {
+  animation-delay: .4s; 
+}
+#Polygon-4 {
+  animation-delay: .6s; 
+}
+#Polygon-5 {
+  animation-delay: .8s; 
 }
 
-div{
-    width: 100%;
-    text-align: $c
+@keyframes float {
+	100% {
+    transform: translateY(20px);
+  }
 }
-
-.number{
-    background: #fff;
-    position: $rl;
-    font: 900 30vmin 'Consolas';
-    letter-spacing: 5vmin;
-    text-shadow: multiple-shadow(8);
-    @include _pseudo-uncomplete($bf, $bl){
-        background-color: #673ab7;
-        background-image: radial-gradient(closest-side at 50% 50%, #ffc107 100%, rgba(0, 0, 0, 0)),
-                          radial-gradient(closest-side at 50% 50%, #e91e63 100%, rgba(0, 0, 0, 0));
-        background-repeat: $rpx;
-        background-size: 40vmin 40vmin;
-        background-position: -100vmin 20vmin, 100vmin -25vmin;
-        @include _dimension(100%);
-        mix-blend-mode: screen;
-        @include _animation(moving, 10s linear infinite both, to){
-            background-position: 100vmin 20vmin, -100vmin -25vmin
-        }
-    }
-}
-
-.text{
-    @include _text($n, 400 5vmin 'Courgette', $n);
-    span{
-        font-size: 10vmin
-    }
+@media (max-width: 450px) {
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -190px;
+  }
+  .message-box {
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -190px;
+    text-align: center;
+  }
 }
